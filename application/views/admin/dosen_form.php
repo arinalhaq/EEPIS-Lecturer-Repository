@@ -52,7 +52,7 @@
                     <strong>Tambah</strong> Dosen
                 </div>
                 <div class="card-body card-block">
-                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <form action="<?php base_url('dosen/add');?>" method="post" enctype="multipart/form-data" class="form-horizontal">
                         <div class="row form-group">
                             <div class="col col-md-3">
                                 <label for="number" class=" form-control-label">NIK</label>
@@ -152,15 +152,15 @@
                                 <small class="help-block form-text">Masukkan Password Anda</small>
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class="card-footer">
+                        <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-sm">
                         <i class="fa fa-dot-circle-o"></i> Submit
                     </button>
                     <button type="reset" class="btn btn-danger btn-sm">
                         <i class="fa fa-ban"></i> Reset
                     </button>
+                </div>
+                    </form>
                 </div>
             </div>
 

@@ -30,5 +30,6 @@
 
 	<!-- Main CSS-->
 	<link href="<?php echo base_url('css/theme.css') ?>" rel="stylesheet" media="all">
+	<link href="<?php echo base_url('assets/DataTables/datatables.min.css') ?>" rel="stylesheet" media="all">
 
 </head>

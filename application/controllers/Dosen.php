@@ -19,7 +19,7 @@ class Dosen extends CI_Controller
 
     public function add()
     {
-        $dosen = $this->dosen_model;
+        $dosen = $this->dosen_model; 
         $validation = $this->form_validation;
         $validation->set_rules($dosen->rules());
 

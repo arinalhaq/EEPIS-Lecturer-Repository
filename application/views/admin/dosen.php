@@ -48,7 +48,7 @@
 				<h3 class="title-3 m-b-30">
 					<i class="zmdi zmdi-account"></i>tabel dosen</h3>
 				<div class="table-responsive table--no-card m-b-30">
-					<table class="table table-borderless table-striped table-earning">
+					<table class="table table-borderless table-striped table-earning" id="datatable">
 						<thead>
 							<tr>
 								<th>ID Dosen</th>

@@ -52,8 +52,8 @@ class Dosen_model extends CI_Model
         $this->EMAIL = $post["email"];
         $this->ALAMAT = $post["alamat"];
         $this->PASSWORD = $post["password"];
-        $this->ID_PRODI = $post["id_prodi"];
-        $this->ID_STATUS = $post["id_status"];
+        $this->ID_PRODI = 1;
+        $this->ID_STATUS = 1;
         $this->db->insert($this->_table, $this);
     }
 
