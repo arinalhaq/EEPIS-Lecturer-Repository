@@ -48,25 +48,25 @@
 				<h3 class="title-3 m-b-30">
 					<i class="zmdi zmdi-account"></i>tabel berkas</h3>
 				<div class="table-responsive table--no-card m-b-30">
-					<table class="table table-borderless table-striped table-earning">
+					<table class="table table-borderless table-striped table-earning" id="datatable">
 						<thead>
 							<tr>
 								<th>ID Berkas</th>
-								<th>ID Jenis Berkas</th>
+								<!--<th>ID Jenis Berkas</th>-->
 								<th>Judul Berkas</th>
-								<th>Deskripsi</th>
+								<!--<th>Deskripsi</th>-->
 								<th>ID Kategori</th>
 								<th>ID Dosen</th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody>
-                        <?php foreach($dosen as $row) : ?>
+                        <?php foreach($berkas as $row) : ?>
 							<tr>
 								<td><?php echo $row->ID_BERKAS?></td>
-								<td><?php echo $row->ID_JENIS_BERKAS?></td>
+								<!--<td><?php //echo $row->ID_JENIS_BERKAS?></td>-->
 								<td><?php echo $row->JUDUL_BERKAS?></td>
-								<td><?php echo $row->DESKRIPSI?></td>
+								<!--<td><?php //echo $row->DESKRIPSI?></td>-->
 								<td><?php echo $row->ID_KATEGORI?></td>
 								<td><?php echo $row->ID_DOSEN?></td>
 								<td>

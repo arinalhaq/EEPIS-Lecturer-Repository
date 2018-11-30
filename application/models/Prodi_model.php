@@ -2,7 +2,7 @@
 
 class Prodi_model extends CI_Model
 {
-    private $_table = "program_studi";
+    private $_table = "prodi";
 
     public $ID_PRODI;
     public $NAMA_PRODI;
@@ -27,14 +27,14 @@ class Prodi_model extends CI_Model
     
     public function getById($id)
     {
-        return $this->db->get_where($this->_table, ["id_kategori" => $id])->row();
+        return $this->db->get_where($this->_table, ["id_prodi" => $id])->row();
     }
 
     public function save()
     {
         $post = $this->input->post();
-        $this->ID_JENIS_BERKAS = $post['id_kategori'];
-        $this->NAMA_JENIS_BERKAS = $post['nama_kategori'];
+        $this->ID_PRODI = $post['id_prodi'];
+        $this->NAMA_PRODI = $post['nama_prodi'];
         $this->db->insert($this->_table, $this);
     }
 

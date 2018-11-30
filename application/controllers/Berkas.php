@@ -2,19 +2,19 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dosen extends CI_Controller
+class Berkas extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("dosen_model");
+        $this->load->model("berkas_model");
         $this->load->library('form_validation');
     }
 
     public function index()
     {
-        $data["dosen"] = $this->dosen_model->getAll();
-        $this->load->view("admin/dosen", $data);
+        $data["berkas"] = $this->berkas_model->getAll();
+        $this->load->view("admin/berkas", $data);
     }
 
     public function add()

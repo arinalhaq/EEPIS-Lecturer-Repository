@@ -1,8 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dosen_model extends CI_Model
+class Berkas_model extends CI_Model
 {
-    private $_table = "dosen";
+    private $_table = "berkas";
 
     public $ID_BERKAS;
     public $ID_JENIS_BERKAS;
