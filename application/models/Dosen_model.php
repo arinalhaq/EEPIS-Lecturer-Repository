@@ -43,11 +43,11 @@ class Dosen_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->ID_DOSEN = $post['id_dosen'];
+        $this->ID_DOSEN = uniqid();
         $this->NIK = $post['nik'];
         $this->NAMA_DOSEN = $post["nama"];
         $this->TEMPAT_LAHIR = $post["tempat_lahir"];
-        $this->TGL_LAHIR = $post["tanggal_lahir"];
+        $this->TGL_LAHIR = $post["tgl_lahir"];
         $this->NO_TELP = $post["no_telp"];
         $this->EMAIL = $post["email"];
         $this->ALAMAT = $post["alamat"];

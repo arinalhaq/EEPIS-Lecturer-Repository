@@ -1,8 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class File_model extends CI_Model
+class Dosen_model extends CI_Model
 {
-    private $_table = "dosen";
+    private $_table = "file";
 
     public $ID_UPLOAD;
     public $ID_BERKAS;
@@ -14,14 +14,29 @@ class File_model extends CI_Model
     public function rules()
     {
         return [
-            ['field' => 'nama',
-            'label' => 'nama',
+            ['field' => 'id_upload',
+            'label' => 'id_upload',
             'rules' => 'required'],
 
-            ['field' => 'tempat_lahir',
-            'label' => 'tempat_lahir',
+            ['field' => 'id_berkas',
+            'label' => 'id_berkas',
             'rules' => 'required'],
-            
+
+            ['field' => 'keterangan',
+            'label' => 'keterangan',
+            'rules' => 'required'],
+
+            ['field' => 'nama_file',
+            'label' => 'nama_file',
+            'rules' => 'required'],
+
+            ['field' => 'id_dosen',
+            'label' => 'id_dosen',
+            'rules' => 'required'],
+
+            ['field' => 'tgl_upload',
+            'label' => 'tgl_upload',
+            'rules' => 'required'],
         ];
     }
 
@@ -56,11 +71,15 @@ class File_model extends CI_Model
         $this->NAMA_FILE = $post["nama_file"];
         $this->ID_DOSEN = $post["id_dosen"];
         $this->TGL_UPLOAD = $post["tgl_upload"];
-        $this->db->update($this->_table, $this, array('ID_UPLOAD' => $post['id_upload']));
+        $this->db->update($this->_table, $this, array('ID_UPLOAD' => $post['id']));
     }
 
     public function delete($id)
     {
         return $this->db->delete($this->_table, array("ID_UPLOAD" => $id));
+    }
+
+    function auth_dosen($id,$password){
+        return $this->db->get_where($this->_table, ["ID_UPLOAD" => $id, "PASSWORD" => $password]);
     }
 }
