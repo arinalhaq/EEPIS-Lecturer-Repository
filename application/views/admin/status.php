@@ -31,7 +31,7 @@
 											<li class="list-inline-item seprate">
 												<span>/</span>
 											</li>
-											<li class="list-inline-item">Berkas</li>
+											<li class="list-inline-item">Status</li>
 										</ul>
 									</div>
 									<button class="au-btn au-btn-icon au-btn--green">
@@ -46,29 +46,21 @@
 			<!-- USER DATA-->
 			<div class="user-data m-b-40">
 				<h3 class="title-3 m-b-30">
-					<i class="zmdi zmdi-account"></i>tabel berkas</h3>
+					<i class="zmdi zmdi-account"></i>tabel status</h3>
 				<div class="table-responsive table--no-card m-b-30">
 					<table class="table table-borderless table-striped table-earning">
 						<thead>
 							<tr>
-								<th>ID Berkas</th>
-								<th>ID Jenis Berkas</th>
-								<th>Judul Berkas</th>
-								<th>Deskripsi</th>
-								<th>ID Kategori</th>
-								<th>ID Dosen</th>
+								<th>ID Status</th>
+								<th>Nama Status</th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody>
                         <?php foreach($dosen as $row) : ?>
 							<tr>
-								<td><?php echo $row->ID_BERKAS?></td>
-								<td><?php echo $row->ID_JENIS_BERKAS?></td>
-								<td><?php echo $row->JUDUL_BERKAS?></td>
-								<td><?php echo $row->DESKRIPSI?></td>
-								<td><?php echo $row->ID_KATEGORI?></td>
-								<td><?php echo $row->ID_DOSEN?></td>
+								<td><?php echo $row->ID_STATUS?></td>
+								<td><?php echo $row->NAMA_STATUS?></td>
 								<td>
 									<button type="submit" name="ubah" class="btn btn-warning btn-sm">
 				                        <i class="fa fa-dot-circle-o"></i> Ubah

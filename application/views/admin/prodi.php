@@ -1,112 +1,85 @@
-            <!-- BREADCRUMB-->
-            <section class="au-breadcrumb m-t-75">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="au-breadcrumb-content">
-                                    <div class="au-breadcrumb-left">
-                                        <span class="au-breadcrumb-span">You are here:</span>
-                                        <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                            <li class="list-inline-item active">
-                                                <a href="index.php">Home</a>
-                                            </li>
-                                            <li class="list-inline-item seprate">
-                                                <span>/</span>
-                                            </li>
-                                            <li class="list-inline-item">Dosen</li>
-                                        </ul>
-                                    </div>
-                                    <button class="au-btn au-btn-icon au-btn--green">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- END BREADCRUMB-->
-            <!-- USER DATA-->
-                                <div class="user-data m-b-40">
-                                    <h3 class="title-3 m-b-30">
-                                        <i class="zmdi zmdi-account"></i>tabel dosen</h3>
-                                    <div class="table-responsive table--no-card m-b-30">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
-                                            <tr>
-                                                <th>date</th>
-                                                <th>order ID</th>
-                                                <th>name</th>
-                                                <th class="text-right">price</th>
-                                                <th class="text-right">quantity</th>
-                                                <th class="text-right">total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>2018-09-29 05:57</td>
-                                                <td>100398</td>
-                                                <td>iPhone X 64Gb Grey</td>
-                                                <td class="text-right">$999.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$999.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-28 01:22</td>
-                                                <td>100397</td>
-                                                <td>Samsung S8 Black</td>
-                                                <td class="text-right">$756.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$756.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-27 02:12</td>
-                                                <td>100396</td>
-                                                <td>Game Console Controller</td>
-                                                <td class="text-right">$22.00</td>
-                                                <td class="text-right">2</td>
-                                                <td class="text-right">$44.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-26 23:06</td>
-                                                <td>100395</td>
-                                                <td>iPhone X 256Gb Black</td>
-                                                <td class="text-right">$1199.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$1199.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-25 19:03</td>
-                                                <td>100393</td>
-                                                <td>USB 3.0 Cable</td>
-                                                <td class="text-right">$10.00</td>
-                                                <td class="text-right">3</td>
-                                                <td class="text-right">$30.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-29 05:57</td>
-                                                <td>100392</td>
-                                                <td>Smartwatch 4.0 LTE Wifi</td>
-                                                <td class="text-right">$199.00</td>
-                                                <td class="text-right">6</td>
-                                                <td class="text-right">$1494.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-24 19:10</td>
-                                                <td>100391</td>
-                                                <td>Camera C430W 4k</td>
-                                                <td class="text-right">$699.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$699.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-22 00:43</td>
-                                                <td>100393</td>
-                                                <td>USB 3.0 Cable</td>
-                                                <td class="text-right">$10.00</td>
-                                                <td class="text-right">3</td>
-                                                <td class="text-right">$30.00</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<?php $this->load->view("admin/layout/head.php"); ?>
+
+<body class="animsition">
+	<div class="page-wrapper">
+		<!-- MENU SIDEBAR-->
+		<?php $this->load->view("admin/layout/sidebar.php"); ?>
+		<!-- END MENU SIDEBAR-->
+
+		<!-- PAGE CONTAINER-->
+		<div class="page-container2">
+			<!-- HEADER DESKTOP-->
+			<?php $this->load->view("admin/layout/navbar.php"); ?>
+			<!-- END HEADER DESKTOP-->
+
+			<!-- BREADCRUMB-->
+			<section class="au-breadcrumb m-t-75">
+				<div class="section__content section__content--p30">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="au-breadcrumb-content">
+									<div class="au-breadcrumb-left">
+										<span class="au-breadcrumb-span">You are here:</span>
+										<ul class="list-unstyled list-inline au-breadcrumb__list">
+											<li class="list-inline-item active">
+												<a href="<?php echo base_url();?>">Home</a>
+											</li>
+											<li class="list-inline-item seprate">
+												<span>/</span>
+											</li>
+											<li class="list-inline-item">Prodi</li>
+										</ul>
+									</div>
+									<button class="au-btn au-btn-icon au-btn--green">
+										<i class="zmdi zmdi-plus"></i>add item</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- END BREADCRUMB-->
+			<!-- USER DATA-->
+			<div class="user-data m-b-40">
+				<h3 class="title-3 m-b-30">
+					<i class="zmdi zmdi-account"></i>tabel prodi</h3>
+				<div class="table-responsive table--no-card m-b-30">
+					<table class="table table-borderless table-striped table-earning">
+						<thead>
+							<tr>
+								<th>ID Prodi</th>
+								<th>Nama Prodi</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+                        <?php foreach($dosen as $row) : ?>
+							<tr>
+								<td><?php echo $row->ID_PRODI?></td>
+								<td><?php echo $row->NAMA_PRODI?></td>
+								<td>
+									<button type="submit" name="ubah" class="btn btn-warning btn-sm">
+				                        <i class="fa fa-dot-circle-o"></i> Ubah
+				                    </button>
+				                    <button type="submit" name="hapus" class="btn btn-danger btn-sm">
+				                        <i class="fa fa-ban"></i> Hapus
+				                    </button>
+								</td>
+							</tr>
+                        <?php endforeach; ?>
+						</tbody>
+					</table>
+				</div>
+				<?php $this->load->view("admin/layout/footer.php"); ?>
+				<!-- END PAGE CONTAINER-->
+			</div>
+		</div>
+
+		<?php $this->load->view("admin/layout/js.php"); ?>
+</body>
+</html>
+<!-- end document-->
