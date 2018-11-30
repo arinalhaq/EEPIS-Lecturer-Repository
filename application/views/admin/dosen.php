@@ -54,6 +54,7 @@
 								<th>ID Dosen</th>
 								<th>NIK</th>
 								<th>Nama Dosen</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -62,6 +63,14 @@
 								<td><?php echo $row->ID_DOSEN?></td>
 								<td><?php echo $row->NIK?></td>
 								<td><?php echo $row->NAMA_DOSEN?></td>
+								<td>
+									<button type="submit" name="ubah" class="btn btn-warning btn-sm">
+				                        <i class="fa fa-dot-circle-o"></i> Ubah
+				                    </button>
+				                    <button type="submit" name="hapus" class="btn btn-danger btn-sm">
+				                        <i class="fa fa-ban"></i> Hapus
+				                    </button>
+								</td>
 							</tr>
                         <?php endforeach; ?>
 						</tbody>
@@ -70,12 +79,9 @@
 				<?php $this->load->view("admin/layout/footer.php"); ?>
 				<!-- END PAGE CONTAINER-->
 			</div>
-
 		</div>
 
 		<?php $this->load->view("admin/layout/js.php"); ?>
-
 </body>
-
 </html>
 <!-- end document-->
