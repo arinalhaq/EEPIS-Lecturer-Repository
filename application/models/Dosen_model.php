@@ -77,4 +77,8 @@ class Dosen_model extends CI_Model
     {
         return $this->db->delete($this->_table, array("ID_DOSEN" => $id));
     }
+
+    function auth_dosen($id,$password){
+        return $this->db->get_where($this->_table, ["ID_DOSEN" => $id, "PASSWORD" => $password]);
+    }
 }

@@ -14,7 +14,7 @@ class Dosen extends CI_Controller
     public function index()
     {
         $data["dosen"] = $this->dosen_model->getAll();
-        $this->load->view("dosen", $data);
+        $this->load->view("admin/dosen", $data);
     }
 
     public function add()
@@ -28,6 +28,6 @@ class Dosen extends CI_Controller
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $this->load->view("dosen_form");
+        $this->load->view("admin/dosen_form");
     }
 }
