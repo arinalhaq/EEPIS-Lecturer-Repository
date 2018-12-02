@@ -10,12 +10,12 @@ class Prodi_model extends CI_Model
     public function rules()
     {
         return [
-            ['field' => 'id_kategori',
-            'label' => 'id_kategori',
+            ['field' => 'id_prodi',
+            'label' => 'id_prodi',
             'rules' => 'required'],
 
-            ['field' => 'nama_kategori',
-            'label' => 'nama_kategori',
+            ['field' => 'nama_prodi',
+            'label' => 'nama_prodi',
             'rules' => 'required'],        
         ];
     }
@@ -38,20 +38,16 @@ class Prodi_model extends CI_Model
         $this->db->insert($this->_table, $this);
     }
 
-    public function update()
+    public function update($id)
     {
         $post = $this->input->post();
-        $this->ID_JENIS_BERKAS = $post['id_kategori'];
-        $this->NAMA_JENIS_BERKAS = $post['nama_kategori'];
-        $this->db->update($this->_table, $this, array('ID_KATEGORI' => $post['id']));
+        $this->ID_PRODI = $post['id_prodi'];
+        $this->NAMA_PRODI = $post['nama_prodi'];
+        $this->db->update($this->_table, $this, array('ID_PRODI' => $id));
     }
 
     public function delete($id)
     {
-        return $this->db->delete($this->_table, array("ID_KATEGORI" => $id));
-    }
-
-    function auth_dosen($id,$password){
-        return $this->db->get_where($this->_table, ["ID_KATEGORI" => $id, "PASSWORD" => $password]);
+        return $this->db->delete($this->_table, array("ID_PRODI" => $id));
     }
 }

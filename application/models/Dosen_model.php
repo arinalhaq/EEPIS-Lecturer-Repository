@@ -52,25 +52,26 @@ class Dosen_model extends CI_Model
         $this->EMAIL = $post["email"];
         $this->ALAMAT = $post["alamat"];
         $this->PASSWORD = $post["password"];
-        $this->ID_PRODI = 1;
-        $this->ID_STATUS = 1;
+        $this->ID_PRODI = $post['id_prodi'];
+        $this->ID_STATUS = $post['id_status'];
         $this->db->insert($this->_table, $this);
     }
 
-    public function update()
+    public function update($id)
     {
         $post = $this->input->post();
-        $this->ID_DOSEN = $post["id_dosen"];
+        $this->ID_DOSEN = $id;
         $this->NIK = $post['nik'];
         $this->NAMA_DOSEN = $post["nama"];
         $this->TEMPAT_LAHIR = $post["tempat_lahir"];
-        $this->TGL_LAHIR = $post["tanggal_lahir"];
+        $this->TGL_LAHIR = $post["tgl_lahir"];
         $this->NO_TELP = $post["no_telp"];
         $this->EMAIL = $post["email"];
         $this->ALAMAT = $post["alamat"];
+        $this->PASSWORD = $post["password"];
         $this->ID_PRODI = $post["id_prodi"];
         $this->ID_STATUS = $post["id_status"];
-        $this->db->update($this->_table, $this, array('ID_DOSEN' => $post['id']));
+        $this->db->update($this->_table, $this, array('ID_DOSEN' => $id));
     }
 
     public function delete($id)
@@ -78,7 +79,7 @@ class Dosen_model extends CI_Model
         return $this->db->delete($this->_table, array("ID_DOSEN" => $id));
     }
 
-    function auth_dosen($id,$password){
-        return $this->db->get_where($this->_table, ["ID_DOSEN" => $id, "PASSWORD" => $password]);
+    function auth_dosen($nik, $password){
+        return $this->db->get_where($this->_table, ["NIK" => $nik, "PASSWORD" => $password]);
     }
 }

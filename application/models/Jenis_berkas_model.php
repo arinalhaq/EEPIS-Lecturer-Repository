@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dosen_model extends CI_Model
+class Jenis_berkas_model extends CI_Model
 {
     private $_table = "jenis_berkas";
 
@@ -38,20 +38,16 @@ class Dosen_model extends CI_Model
         $this->db->insert($this->_table, $this);
     }
 
-    public function update()
+    public function update($id)
     {
         $post = $this->input->post();
         $this->ID_JENIS_BERKAS = $post['id_jenis_berkas'];
         $this->NAMA_JENIS_BERKAS = $post['nama_jenis_berkas'];
-        $this->db->update($this->_table, $this, array('ID_JENIS_BERKAS' => $post['id']));
+        $this->db->update($this->_table, $this, array('ID_JENIS_BERKAS' => $id));
     }
 
     public function delete($id)
     {
         return $this->db->delete($this->_table, array("ID_JENIS_BERKAS" => $id));
-    }
-
-    function auth_dosen($id,$password){
-        return $this->db->get_where($this->_table, ["ID_JENIS_BERKAS" => $id, "PASSWORD" => $password]);
     }
 }

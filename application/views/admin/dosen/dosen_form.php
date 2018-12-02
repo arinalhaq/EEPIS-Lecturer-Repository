@@ -38,22 +38,22 @@
 											<li class="list-inline-item">Form</li>
 										</ul>
 									</div>
-									<button class="au-btn au-btn-icon au-btn--green">
-										<i class="zmdi zmdi-plus"></i>add item</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-            <!-- END BREADCRUMB-->
-            <?php if ($this->session->flashdata('success')): ?>
-				<div class="alert alert-success" role="alert">
-					<?php echo $this->session->flashdata('success'); ?>
-				</div>
-				<?php endif; ?>
+			<!-- END BREADCRUMB-->
+			<?php if ($this->session->flashdata('success')): ?>
+			<div class="alert alert-success" role="alert">
+				<?php echo $this->session->flashdata('success'); ?>
+			</div>
+			<?php endif; ?>
 			<div class="card">
 				<div class="card-header">
+				<a href="<?php echo base_url('dosen');?>">
+					<button class="btn btn-icon"><i class="zmdi zmdi-chevron-left"></i></button></a>
 					<strong>Tambah</strong> Dosen
 				</div>
 				<div class="card-body card-block">
@@ -64,8 +64,8 @@
 							</div>
 							<div class="col-12 col-md-9">
 								<input type="text" id="nik" name="nik" placeholder="" class="form-control">
-                                <small class="form-text text-muted">Masukkan NIK Anda</small>
-                                <div class="invalid-feedback">
+								<small class="form-text text-muted">Masukkan NIK Anda</small>
+								<div class="invalid-feedback">
 									<?php echo form_error('nik') ?>
 								</div>
 							</div>
@@ -76,8 +76,8 @@
 							</div>
 							<div class="col-12 col-md-9">
 								<input type="text" id="nama" name="nama" placeholder="" class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>">
-                                <small class="help-block form-text">Masukkan Nama Anda</small>
-                                <div class="invalid-feedback">
+								<small class="help-block form-text">Masukkan Nama Anda</small>
+								<div class="invalid-feedback">
 									<?php echo form_error('nama') ?>
 								</div>
 							</div>
@@ -88,9 +88,11 @@
 							</div>
 							<div class="col-12 col-md-9">
 								<select name="id_prodi" id="select" class="form-control">
-                                    <?php foreach($prodi as $row) : ?>
-									<option value="<?php echo $row->ID_PRODI?>"><?php echo $row->NAMA_PRODI?></option>
-                                    <?php endforeach; ?>
+									<?php foreach($prodi as $row) : ?>
+									<option value="<?php echo $row->ID_PRODI?>">
+										<?php echo $row->NAMA_PRODI?>
+									</option>
+									<?php endforeach; ?>
 								</select>
 								<small class="help-block form-text">Masukkan Program Studi</small>
 							</div>
@@ -145,10 +147,11 @@
 							</div>
 							<div class="col-12 col-md-9">
 								<select name="id_status" id="id_status" class="form-control">
-									<option value="0">Please select</option>
-									<option value="1">Option #1</option>
-									<option value="2">Option #2</option>
-									<option value="3">Option #3</option>
+								<?php foreach($status as $row) : ?>
+									<option value="<?php echo $row->ID_STATUS?>">
+										<?php echo $row->NAMA_STATUS?>
+									</option>
+									<?php endforeach; ?>
 								</select>
 								<small class="help-block form-text">Masukkan Program Studi</small>
 							</div>
@@ -164,10 +167,10 @@
 						</div>
 						<div class="card-footer">
 							<button type="submit" class="btn btn-primary btn-sm">
-								<i class="fa fa-dot-circle-o"></i> Submit
+								Submit
 							</button>
 							<button type="reset" class="btn btn-danger btn-sm">
-								<i class="fa fa-ban"></i> Reset
+								Reset
 							</button>
 						</div>
 					</form>

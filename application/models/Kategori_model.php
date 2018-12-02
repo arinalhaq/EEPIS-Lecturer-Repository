@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dosen_model extends CI_Model
+class Kategori_model extends CI_Model
 {
     private $_table = "kategori";
 
@@ -10,9 +10,9 @@ class Dosen_model extends CI_Model
     public function rules()
     {
         return [
-            ['field' => 'id_kategori',
-            'label' => 'id_kategori',
-            'rules' => 'required'],
+            //['field' => 'id_kategori',
+            //'label' => 'id_kategori',
+            //'rules' => 'required'],
 
             ['field' => 'nama_kategori',
             'label' => 'nama_kategori',
@@ -33,17 +33,17 @@ class Dosen_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->ID_JENIS_BERKAS = $post['id_kategori'];
-        $this->NAMA_JENIS_BERKAS = $post['nama_kategori'];
+        //$this->ID_KATEGORI = DEFAULT;
+        $this->NAMA_KATEGORI = $post['nama_kategori'];
         $this->db->insert($this->_table, $this);
     }
 
-    public function update()
+    public function update($id)
     {
         $post = $this->input->post();
-        $this->ID_JENIS_BERKAS = $post['id_kategori'];
-        $this->NAMA_JENIS_BERKAS = $post['nama_kategori'];
-        $this->db->update($this->_table, $this, array('ID_KATEGORI' => $post['id']));
+        $this->ID_KATEGORI = $id;
+        $this->NAMA_KATEGORI = $post['nama_kategori'];
+        $this->db->update($this->_table, $this, array('ID_KATEGORI' => $id));
     }
 
     public function delete($id)
@@ -51,7 +51,4 @@ class Dosen_model extends CI_Model
         return $this->db->delete($this->_table, array("ID_KATEGORI" => $id));
     }
 
-    function auth_dosen($id,$password){
-        return $this->db->get_where($this->_table, ["ID_KATEGORI" => $id, "PASSWORD" => $password]);
-    }
 }

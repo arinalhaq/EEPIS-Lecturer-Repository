@@ -27,3 +27,10 @@
 <script>$(document).ready( function () {
     $('#datatable').DataTable();
 } );</script>
+<script>
+function deleteConfirm(url){
+	$('#btn-delete').attr('href', url);
+	$('#deleteModal').modal();
+}
+</script>
+
