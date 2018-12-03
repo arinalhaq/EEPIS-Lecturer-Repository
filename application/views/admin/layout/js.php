@@ -23,3 +23,14 @@
 <script src="<?php echo base_url('assets/vector-map/jquery.vmap.world.js') ?>"></script>
 <!-- Main JS-->
 <script src="<?php echo base_url('js/main.js') ?>"></script>
+<script src="<?php echo base_url('assets/DataTables/datatables.min.js') ?>"></script>
+<script>$(document).ready( function () {
+    $('#datatable').DataTable();
+} );</script>
+<script>
+function deleteConfirm(url){
+	$('#btn-delete').attr('href', url);
+	$('#deleteModal').modal();
+}
+</script>
+

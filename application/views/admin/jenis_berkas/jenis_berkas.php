@@ -31,11 +31,12 @@
 											<li class="list-inline-item seprate">
 												<span>/</span>
 											</li>
-											<li class="list-inline-item">Kategori</li>
+											<li class="list-inline-item">Jenis Berkas</li>
 										</ul>
 									</div>
-									<button class="au-btn au-btn-icon au-btn--green">
-										<i class="zmdi zmdi-plus"></i>add item</button>
+									<a href="<?php echo base_url('jenis_berkas/add');?>">
+										<button class="au-btn au-btn-icon au-btn--green">
+											<i class="zmdi zmdi-plus"></i>add item</button></a>
 								</div>
 							</div>
 						</div>
@@ -46,31 +47,36 @@
 			<!-- USER DATA-->
 			<div class="user-data m-b-40">
 				<h3 class="title-3 m-b-30">
-					<i class="zmdi zmdi-account"></i>tabel kategori</h3>
+					<i class="zmdi zmdi-grid"></i>tabel Jenis Berkas</h3>
 				<div class="table-responsive table--no-card m-b-30">
-					<table class="table table-borderless table-striped table-earning">
+					<table class="table table-borderless table-striped table-earning" id="datatable">
 						<thead>
 							<tr>
-								<th>ID Kategori</th>
-								<th>Nama Kategori</th>
+								<th>ID Jenis berkas</th>
+								<th>Nama Jenis Berkas</th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody>
-                        <?php foreach($dosen as $row) : ?>
+							<?php foreach($jenis_berkas as $row) : ?>
 							<tr>
-								<td><?php echo $row->ID_KATEGORI?></td>
-								<td><?php echo $row->NAMA_KATEGORI?></td>
 								<td>
-									<button type="submit" name="ubah" class="btn btn-warning btn-sm">
-				                        <i class="fa fa-dot-circle-o"></i> Ubah
-				                    </button>
-				                    <button type="submit" name="hapus" class="btn btn-danger btn-sm">
-				                        <i class="fa fa-ban"></i> Hapus
-				                    </button>
+									<?php echo $row->ID_JENIS_BERKAS?>
+								</td>
+								<td>
+									<?php echo $row->NAMA_JENIS_BERKAS?>
+								</td>
+								<td>
+									<a href="<?php echo base_url('jenis_berkas/edit/'.$row->ID_JENIS_BERKAS)?>">
+										<button type="submit" name="ubah" class="btn btn-warning btn-sm">
+											Ubah
+										</button></a>
+									<a onclick="deleteConfirm('<?php echo site_url('jenis_berkas/del/'.$row->ID_JENIS_BERKAS) ?>')" href="#!" class="btn btn-danger btn-sm">
+										Hapus
+									</a>
 								</td>
 							</tr>
-                        <?php endforeach; ?>
+							<?php endforeach; ?>
 						</tbody>
 					</table>
 				</div>
@@ -79,7 +85,9 @@
 			</div>
 		</div>
 
+		<?php $this->load->view("admin/layout/modal.php"); ?>
 		<?php $this->load->view("admin/layout/js.php"); ?>
 </body>
+
 </html>
 <!-- end document-->

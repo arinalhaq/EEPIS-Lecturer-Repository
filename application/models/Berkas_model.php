@@ -1,8 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dosen_model extends CI_Model
+class Berkas_model extends CI_Model
 {
-    private $_table = "dosen";
+    private $_table = "berkas";
 
     public $ID_BERKAS;
     public $ID_JENIS_BERKAS;
@@ -63,16 +63,16 @@ class Dosen_model extends CI_Model
         $this->db->insert($this->_table, $this);
     }
 
-    public function update()
+    public function update($id)
     {
         $post = $this->input->post();
-        $this->ID_BERKAS = $post['id_berkas'];
+        $this->ID_BERKAS = $id;
         $this->ID_JENIS_BERKAS = $post['id_jenis_berkas'];
         $this->JUDUL_BERKAS = $post["judul_berkas"];
         $this->DESKRIPSI = $post["deskripsi"];
         $this->ID_KATEGORI = $post["id_kategori"];
         $this->ID_DOSEN = $post["id_dosen"];
-        $this->db->update($this->_table, $this, array('ID_BERKAS' => $post['id']));
+        $this->db->update($this->_table, $this, array('ID_BERKAS' => $id));
     }
 
     public function delete($id)

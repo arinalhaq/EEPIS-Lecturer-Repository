@@ -34,8 +34,9 @@
 											<li class="list-inline-item">Prodi</li>
 										</ul>
 									</div>
-									<button class="au-btn au-btn-icon au-btn--green">
-										<i class="zmdi zmdi-plus"></i>add item</button>
+									<a href="<?php echo base_url('prodi/add');?>">
+										<button class="au-btn au-btn-icon au-btn--green">
+											<i class="zmdi zmdi-plus"></i>add item</button></a>
 								</div>
 							</div>
 						</div>
@@ -46,9 +47,9 @@
 			<!-- USER DATA-->
 			<div class="user-data m-b-40">
 				<h3 class="title-3 m-b-30">
-					<i class="zmdi zmdi-account"></i>tabel prodi</h3>
+					<i class="zmdi zmdi-grid"></i>tabel Prodi</h3>
 				<div class="table-responsive table--no-card m-b-30">
-					<table class="table table-borderless table-striped table-earning">
+					<table class="table table-borderless table-striped table-earning" id="datatable">
 						<thead>
 							<tr>
 								<th>ID Prodi</th>
@@ -57,20 +58,25 @@
 							</tr>
 						</thead>
 						<tbody>
-                        <?php foreach($dosen as $row) : ?>
+							<?php foreach($prodi as $row) : ?>
 							<tr>
-								<td><?php echo $row->ID_PRODI?></td>
-								<td><?php echo $row->NAMA_PRODI?></td>
 								<td>
-									<button type="submit" name="ubah" class="btn btn-warning btn-sm">
-				                        <i class="fa fa-dot-circle-o"></i> Ubah
-				                    </button>
-				                    <button type="submit" name="hapus" class="btn btn-danger btn-sm">
-				                        <i class="fa fa-ban"></i> Hapus
-				                    </button>
+									<?php echo $row->ID_PRODI?>
+								</td>
+								<td>
+									<?php echo $row->NAMA_PRODI?>
+								</td>
+								<td>
+									<a href="<?php echo base_url('prodi/edit/'.$row->ID_PRODI)?>">
+										<button type="submit" name="ubah" class="btn btn-warning btn-sm">
+											Ubah
+										</button></a>
+									<a onclick="deleteConfirm('<?php echo site_url('prodi/del/'.$row->ID_PRODI) ?>')" href="#!" class="btn btn-danger btn-sm">
+										Hapus
+									</a>
 								</td>
 							</tr>
-                        <?php endforeach; ?>
+							<?php endforeach; ?>
 						</tbody>
 					</table>
 				</div>
@@ -79,7 +85,9 @@
 			</div>
 		</div>
 
+		<?php $this->load->view("admin/layout/modal.php"); ?>
 		<?php $this->load->view("admin/layout/js.php"); ?>
 </body>
+
 </html>
 <!-- end document-->
