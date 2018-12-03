@@ -67,4 +67,17 @@ class Dosen extends CI_Controller
             redirect(site_url('dosen'));
         }
     }
+
+    public function view($id = null)
+    {
+        if (!isset($id)) redirect('admin/dosen/dosen');
+       
+        $dosen = $this->dosen_model;
+        $data["dosen"] = $dosen->getById($id);
+        $this->load->model('prodi_model');
+        $this->load->model('status_model');
+        if (!$data["dosen"]) show_404();
+        
+        $this->load->view("admin/dosen/dosen_view", $data);
+    }
 }

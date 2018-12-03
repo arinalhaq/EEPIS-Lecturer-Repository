@@ -65,8 +65,9 @@
 								<td>
 									<?php echo $row->NIK?>
 								</td>
-								<td>
-									<?php echo $row->NAMA_DOSEN?>
+								
+								<td><a href="<?php echo base_url('dosen/view/').$row->ID_DOSEN?>" color="black">
+									<?php echo $row->NAMA_DOSEN?></a>
 								</td>
 								<td>
 									<?php echo $this->prodi_model->getById($row->ID_PRODI)->NAMA_PRODI?>

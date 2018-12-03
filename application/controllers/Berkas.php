@@ -14,22 +14,42 @@ class Berkas extends CI_Controller
     public function index()
     {
         $data["berkas"] = $this->berkas_model->getAll();
-        $this->load->view("admin/berkas", $data);
+        $this->load->model('kategori_model');
+        $this->load->model('dosen_model');
+        $this->load->view("admin/berkas/berkas", $data);
     }
 
     public function add()
     {
-        $dosen = $this->dosen_model;
-        $this->load->model('prodi_model');
-        $data['prodi'] = $this->prodi_model->getAll();
+        $berkas = $this->berkas_model;
+        $this->load->model('kategori_model');
+        $this->load->model('dosen_model');
+        $this->load->model('jenis_berkas_model');
+        $data['kategori'] = $this->kategori_model->getAll();
+        $data['dosen'] = $this->dosen_model->getAll();
+        $data['jenis_berkas'] = $this->jenis_berkas_model->getAll();
         $validation = $this->form_validation;
-        $validation->set_rules($dosen->rules());
+        $validation->set_rules($berkas->rules());
 
         if ($validation->run()) {
-            $dosen->save();
+            $berkas->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $this->load->view("admin/dosen_form", $data);
+        $this->load->view("admin/berkas/berkas_form", $data);
+    }
+
+    public function view($id = null)
+    {
+        if (!isset($id)) redirect('admin/berkas/berkas');
+       
+        $berkas = $this->berkas_model;
+        $data["berkas"] = $berkas->getById($id);
+        $this->load->model('kategori_model');
+        $this->load->model('dosen_model');
+        $this->load->model('jenis_berkas_model');
+        if (!$data["berkas"]) show_404();
+        
+        $this->load->view("admin/berkas/berkas_view", $data);
     }
 }
