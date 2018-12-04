@@ -39,12 +39,6 @@
 										</ul>
 									</div>
 									<div>
-										<button type="submit" class="btn btn-primary btn-sm">
-											Submit
-										</button>
-										<button type="reset" class="btn btn-danger btn-sm">
-											Reset
-										</button>
 									</div>
 								</div>
 							</div>
@@ -106,6 +100,21 @@
 								<?php echo $berkas->DESKRIPSI?>
 							</div>
 						</div>
+						<div class="row form-group">
+							<div class="col col-md-3">
+								<button type="submit" class="btn btn-warning btn-sm">
+											Ubah
+										</button>
+										<button type="reset" class="btn btn-danger btn-sm">
+											Hapus
+										</button>
+							</div>
+							<!--
+							<div class="col-12 col-md-9">
+								<?php echo $berkas->DESKRIPSI?>
+							</div> -->
+						</div>
+						
 					</form>
 				</div>
 			</div>
