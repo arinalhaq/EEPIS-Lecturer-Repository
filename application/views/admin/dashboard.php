@@ -48,15 +48,7 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
-<<<<<<< HEAD
-                                    <h2 class="number">
-                                        <?php
-                                            echo $dosen;
-                                        ?>  
-                                    </h2>
-=======
                                     <h2 class="number"><?php echo $dosen ?></h2>
->>>>>>> 6d895dca13f0624609a59715c9688b57c84081de
                                     <span class="desc">jumlah dosen</span>
                                     <div class="icon">
                                         <i class="zmdi zmdi-account-o"></i>
@@ -65,7 +57,7 @@
                             </div>
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
-                                    <h2 class="number">388,688</h2>
+                                    <h2 class="number"><?php echo $berkas ?></h2>
                                     <span class="desc">jumlah berkas</span>
                                     <div class="icon">
                                         <i class="zmdi zmdi-file"></i>
@@ -74,7 +66,7 @@
                             </div>
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
-                                    <h2 class="number">1,086</h2>
+                                    <h2 class="number"><?php echo $prodi ?></h2>
                                     <span class="desc">jumlah prodi</span>
                                     <div class="icon">
                                         <i class="zmdi zmdi-case"></i>
@@ -104,7 +96,7 @@
                                     <h3 class="title-3 m-b-30">
                                         <i class="zmdi zmdi-file"></i>recent post</h3>
                                     <div class="table-responsive table--no-card m-b-30">
-                                    <table class="table table-borderless table-striped table-earning">
+                                    <table class="table table-borderless table-striped table-earning" id="datatable">
                                         <thead>
                                             <tr>
                                                 <th>date</th>
@@ -112,43 +104,47 @@
                                                 <th>nama berkas</th>
                                                 <th>dosen</th>
                                                 <th>prodi</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach($file as $row) : ?>
                                             <tr>
-                                                <td>2018-09-29 05:57</td>
-                                                <td>100398</td>
-                                                <td>iPhone X 64Gb Grey</td>
-                                                <td class="text-right">$999.00</td>
-                                                <td class="text-right">1</td>
+                                                <td>
+                                                    <?php echo $row->TGL_UPLOAD?>
+                                                </td>
+                                                
+                                                <td><a href="<?php echo base_url('dosen/view/').$row->ID_UPLOAD?>" color="black">
+                                                    <?php echo $row->NAMA_FILE?></a>
+                                                </td>
+                                                <td>
+                                                    <?php echo $this->berkas_model->getById($row->ID_BERKAS)->JUDUL_BERKAS?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $this->dosen_model->getById($row->ID_DOSEN)->NAMA_DOSEN ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $this->prodi_model->getById($row->ID_DOSEN)->NAMA_PRODI ?>
+                                                </td>
+                                                <td>
+                                                    <a href="<?php echo base_url('dosen/edit/'.$row->ID_UPLOAD)?>">
+                                                        <button type="submit" name="ubah" class="btn btn-warning btn-sm">
+                                                            Ubah
+                                                        </button></a>
+                                                    <a onclick="deleteConfirm('<?php echo site_url('dosen/del/'.$row->ID_UPLOAD) ?>')" href="#!"
+                                                    class="btn btn-danger btn-sm">
+                                                            Hapus
+                                                    </a>
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td>2018-09-28 01:22</td>
-                                                <td>100397</td>
-                                                <td>Samsung S8 Black</td>
-                                                <td class="text-right">$756.00</td>
-                                                <td class="text-right">1</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-27 02:12</td>
-                                                <td>100396</td>
-                                                <td>Game Console Controller</td>
-                                                <td class="text-right">$22.00</td>
-                                                <td class="text-right">2</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-26 23:06</td>
-                                                <td>100395</td>
-                                                <td>iPhone X 256Gb Black</td>
-                                                <td class="text-right">$1199.00</td>
-                                                <td class="text-right">1</td>
-                                            </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
+                                    <!--
                                     <div class="user-data__footer">
                                         <button class="au-btn au-btn-load">load more</button>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <!-- END USER DATA-->
                 </div>
