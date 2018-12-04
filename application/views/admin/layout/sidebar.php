@@ -9,13 +9,13 @@
 			<!--<div class="image img-cir img-120">
 				<img src="<?php //echo base_url('images/icon/avatar-big-01.jpg') ?>" alt="John Doe" />
 			</div>-->
-			<h4 class="name"><?php echo $this->session->userdata('ses_nama');?></h4>
-			<a href="#">Sign out</a>
+			<h4 class="name">Hello, <?php echo $this->session->userdata('ses_nama');?></h4>
+			<a href="<?php echo base_url('login/logout')?>">Sign out</a>
 		</div>
 		<nav class="navbar-sidebar2">
 			<ul class="list-unstyled navbar__list">
 				<li>
-					<a href="<?php echo base_url('admin')?>">
+					<a href="<?php echo base_url('admin/dashboard')?>">
 						<i class="fas fa-tachometer-alt"></i>Dashboard</a>
 				</li>
 				<li class="has-sub">
@@ -27,27 +27,23 @@
 					</a>
 					<ul class="list-unstyled navbar__sub-list js-sub-list">
 						<li>
-							<a href="index.php?menu=berkas">
+							<a href="<?php echo base_url('admin/berkas')?>">
 								<i class="fas fa-folder-open"></i>Berkas</a>
 						</li>
 						<li>
-							<a href="index.php?menu=dosen">
+							<a href="<?php echo base_url('admin/dosen')?>">
 								<i class="fas fa-user"></i>Dosen</a>
 						</li>
 						<li>
-							<a href="index.php?menu=file">
-								<i class="fas fa-file"></i>File</a>
+							<a href="<?php echo base_url('admin/jenis_berkas')?>">
+								<i class="fas fa-files-o"></i>Jenis Berkas</a>
 						</li>
 						<li>
-							<a href="index.php?menu=jenis_file">
-								<i class="fas fa-files-o"></i>Jenis File</a>
-						</li>
-						<li>
-							<a href="index.php?menu=kategori">
+							<a href="<?php echo base_url('admin/kategori')?>">
 								<i class="fas fa-th"></i>Kategori</a>
 						</li>
 						<li>
-							<a href="index.php?menu=prodi">
+							<a href="<?php echo base_url('admin/prodi')?>">
 								<i class="fas fa-briefcase"></i>Prodi</a>
 						</li>
 					</ul>

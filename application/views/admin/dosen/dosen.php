@@ -34,7 +34,7 @@
 											<li class="list-inline-item">Dosen</li>
 										</ul>
 									</div>
-									<a href="<?php echo base_url('dosen/add');?>">
+									<a href="<?php echo base_url('admin/dosen/add');?>">
 										<button class="au-btn au-btn-icon au-btn--green">
 											<i class="zmdi zmdi-plus">
 											</i>add item</button></a>
@@ -66,18 +66,18 @@
 									<?php echo $row->NIK?>
 								</td>
 								
-								<td><a href="<?php echo base_url('dosen/view/').$row->ID_DOSEN?>" color="black">
+								<td><a href="<?php echo base_url('admin/dosen/view/').$row->ID_DOSEN?>" color="black">
 									<?php echo $row->NAMA_DOSEN?></a>
 								</td>
 								<td>
 									<?php echo $this->prodi_model->getById($row->ID_PRODI)->NAMA_PRODI?>
 								</td>
 								<td>
-									<a href="<?php echo base_url('dosen/edit/'.$row->ID_DOSEN)?>">
-										<button type="submit" name="ubah" class="btn btn-warning btn-sm">
+									<a href="<?php echo base_url('admin/dosen/edit/'.$row->ID_DOSEN)?>">
+										<button type="submit" name="ubah" class="btn btn-primary btn-sm">
 											Ubah
 										</button></a>
-									<a onclick="deleteConfirm('<?php echo site_url('dosen/del/'.$row->ID_DOSEN) ?>')" href="#!"
+									<a onclick="deleteConfirm('<?php echo site_url('admin/dosen/del/'.$row->ID_DOSEN) ?>')" href="#!"
 									class="btn btn-danger btn-sm">
 											Hapus
 									</a>

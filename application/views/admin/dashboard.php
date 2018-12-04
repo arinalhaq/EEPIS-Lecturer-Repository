@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<?php $this->load->view("admin/layout/head.php"); ?>
+
+<body class="animsition">
+	<div class="page-wrapper">
+		<!-- MENU SIDEBAR-->
+		<?php $this->load->view("admin/layout/sidebar.php"); ?>
+		<!-- END MENU SIDEBAR-->
+
+		<!-- PAGE CONTAINER-->
+		<div class="page-container2">
+			<!-- HEADER DESKTOP-->
+			<?php $this->load->view("admin/layout/navbar.php"); ?>
+			<!-- END HEADER DESKTOP-->
             <!-- BREADCRUMB-->
             <section class="au-breadcrumb m-t-75">
                 <div class="section__content section__content--p30">
@@ -166,3 +182,9 @@
                                 <!-- END USER DATA-->
                 </div>
             </section>
+            <?php $this->load->view("admin/layout/modal.php"); ?>
+		<?php $this->load->view("admin/layout/js.php"); ?>
+</body>
+
+</html>
+<!-- end document-->

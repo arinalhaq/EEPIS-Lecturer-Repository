@@ -34,7 +34,7 @@
 											<li class="list-inline-item">Kategori</li>
 										</ul>
 									</div>
-									<a href="<?php echo base_url('kategori/add');?>">
+									<a href="<?php echo base_url('admin/kategori/add');?>">
 										<button class="au-btn au-btn-icon au-btn--green">
 											<i class="zmdi zmdi-plus"></i>add item</button></a>
 								</div>
@@ -67,11 +67,11 @@
 									<?php echo $row->NAMA_KATEGORI?>
 								</td>
 								<td>
-									<a href="<?php echo base_url('kategori/edit/'.$row->ID_KATEGORI)?>">
+									<a href="<?php echo base_url('admin/kategori/edit/'.$row->ID_KATEGORI)?>">
 										<button type="submit" name="ubah" class="btn btn-warning btn-sm">
 											Ubah
 										</button></a>
-									<a onclick="deleteConfirm('<?php echo site_url('kategori/del/'.$row->ID_KATEGORI) ?>')" href="#!" class="btn btn-danger btn-sm">
+									<a onclick="deleteConfirm('<?php echo site_url('admin/kategori/del/'.$row->ID_KATEGORI) ?>')" href="#!" class="btn btn-danger btn-sm">
 										Hapus
 									</a>
 								</td>

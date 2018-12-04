@@ -80,7 +80,8 @@ class Berkas_model extends CI_Model
         return $this->db->delete($this->_table, array("ID_BERKAS" => $id));
     }
 
-    function auth_dosen($id,$password){
-        return $this->db->get_where($this->_table, ["ID_BERKAS" => $id, "PASSWORD" => $password]);
+    function getByIdNot($id){
+        
+        return $this->db->query('SELECT * FROM '.$this->_table.' WHERE ID_DOSEN NOT IN('.$id.')')->result();
     }
 }

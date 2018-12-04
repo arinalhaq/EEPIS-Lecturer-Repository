@@ -34,7 +34,7 @@
 											<li class="list-inline-item">Prodi</li>
 										</ul>
 									</div>
-									<a href="<?php echo base_url('prodi/add');?>">
+									<a href="<?php echo base_url('admin/prodi/add');?>">
 										<button class="au-btn au-btn-icon au-btn--green">
 											<i class="zmdi zmdi-plus"></i>add item</button></a>
 								</div>
@@ -67,11 +67,11 @@
 									<?php echo $row->NAMA_PRODI?>
 								</td>
 								<td>
-									<a href="<?php echo base_url('prodi/edit/'.$row->ID_PRODI)?>">
+									<a href="<?php echo base_url('admin/prodi/edit/'.$row->ID_PRODI)?>">
 										<button type="submit" name="ubah" class="btn btn-warning btn-sm">
 											Ubah
 										</button></a>
-									<a onclick="deleteConfirm('<?php echo site_url('prodi/del/'.$row->ID_PRODI) ?>')" href="#!" class="btn btn-danger btn-sm">
+									<a onclick="deleteConfirm('<?php echo site_url('admin/prodi/del/'.$row->ID_PRODI) ?>')" href="#!" class="btn btn-danger btn-sm">
 										Hapus
 									</a>
 								</td>

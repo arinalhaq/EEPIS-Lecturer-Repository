@@ -52,12 +52,12 @@
 			<?php endif; ?>
 			<div class="card">
 				<div class="card-header">
-				<a href="<?php echo base_url('prodi');?>">
+				<a href="<?php echo base_url('admin/prodi');?>">
 					<button class="btn btn-icon"><i class="zmdi zmdi-chevron-left"></i></button></a>
 					<strong>Tambah</strong> Prodi
 				</div>
 				<div class="card-body card-block">
-					<form action="<?php base_url('prodi/add');?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+					<form action="<?php base_url('admin/prodi/add');?>" method="post" enctype="multipart/form-data" class="form-horizontal">
 						<div class="row form-group">
 							<div class="col col-md-3">
 								<label for="number" class=" form-control-label">ID Prodi</label>

@@ -13,8 +13,9 @@ class Dosen extends CI_Controller
 
     public function index()
     {
-        $data["dosen"] = $this->dosen_model->getAll();
+        $data["dosen"] = $this->dosen_model->getByIdNot($this->session->userdata('ses_id'));
         $this->load->model('prodi_model');
+        //if($data['dosen']->num_rows()>0)
         $this->load->view("admin/dosen/dosen", $data);
     }
 
@@ -79,5 +80,9 @@ class Dosen extends CI_Controller
         if (!$data["dosen"]) show_404();
         
         $this->load->view("admin/dosen/dosen_view", $data);
+    }
+
+    public function dashboard(){
+        $this->load->view('admin/dashboard');
     }
 }
