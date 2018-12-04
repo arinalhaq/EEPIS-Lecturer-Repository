@@ -110,6 +110,52 @@
 				</div>
 			</div>
 
+		<!-- USER DATA-->
+		<div class="user-data m-b-40">
+				<h3 class="title-3 m-b-30">
+					<i class="zmdi zmdi-account"></i>tabel dosen</h3>
+				<div class="table-responsive table--no-card m-b-30">
+					<table class="table table-borderless table-striped table-earning" id="datatable">
+						<thead>
+							<tr>
+								<th>NIK</th>
+								<th>Nama Dosen</th>
+								<th>Program Studi</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach($dosen as $row) : ?>
+							<tr>
+								<td>
+									<?php echo $row->NIK?>
+								</td>
+								
+								<td><a href="<?php echo base_url('dosen/view/').$row->ID_DOSEN?>" color="black">
+									<?php echo $row->NAMA_DOSEN?></a>
+								</td>
+								<td>
+									<?php echo $this->prodi_model->getById($row->ID_PRODI)->NAMA_PRODI?>
+								</td>
+								<td>
+									<a href="<?php echo base_url('dosen/edit/'.$row->ID_DOSEN)?>">
+										<button type="submit" name="ubah" class="btn btn-warning btn-sm">
+											Ubah
+										</button></a>
+									<a onclick="deleteConfirm('<?php echo site_url('dosen/del/'.$row->ID_DOSEN) ?>')" href="#!"
+									class="btn btn-danger btn-sm">
+											Hapus
+									</a>
+								</td>
+							</tr>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
+				</div>
+				<?php $this->load->view("admin/layout/footer.php"); ?>
+				<!-- END PAGE CONTAINER-->
+			</div>
+
 		</div>
 
 		<?php $this->load->view("admin/layout/js.php"); ?>
