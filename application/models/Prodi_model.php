@@ -50,4 +50,9 @@ class Prodi_model extends CI_Model
     {
         return $this->db->delete($this->_table, array("ID_PRODI" => $id));
     }
+
+    function getCount(){
+        
+        return $this->db->count_all($this->_table);
+    }
 }
