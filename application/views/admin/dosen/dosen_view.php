@@ -39,12 +39,13 @@
 										</ul>
 									</div>
 									<div>
-										<button type="submit" class="btn btn-primary btn-sm">
-											Submit
-										</button>
-										<button type="reset" class="btn btn-danger btn-sm">
-											Reset
-										</button>
+										<a href="<?php echo base_url('admin/dosen/edit/'.$dosen->ID_DOSEN)?>">
+											<button type="submit" name="ubah" class="btn btn-primary btn-sm">
+												Ubah
+											</button></a>
+										<a onclick="deleteConfirm('<?php echo base_url('admin/dosen/del/'.$dosen->ID_DOSEN) ?>')" href="#!" class="btn btn-danger btn-sm">
+											Hapus
+										</a>
 									</div>
 								</div>
 							</div>
@@ -60,7 +61,7 @@
 			<?php endif; ?>
 			<div class="card">
 				<div class="card-header">
-					<a href="<?php echo base_url('dosen');?>">
+					<a href="<?php echo base_url('admin/dosen');?>">
 						<button class="btn btn-icon"><i class="zmdi zmdi-chevron-left"></i></button></a>
 					<strong>Data</strong> Dosen
 				</div>
@@ -76,7 +77,7 @@
 						</div>
 						<div class="row form-group">
 							<div class="col col-md-3">
-								<label for="nama-input" class=" form-control-label">Nama Dosen</label>
+								<label for="nama-input" class="form-control-label">Nama Dosen</label>
 							</div>
 							<div class="col-12 col-md-9">
 								<?php echo $dosen->NAMA_DOSEN?>
@@ -87,7 +88,7 @@
 								<label for="select" class=" form-control-label">Program Studi</label>
 							</div>
 							<div class="col-12 col-md-9">
-								<?php echo $this->prodi_model->getById($dosen->ID_DOSEN)->NAMA_PRODI?>
+								<?php echo $this->prodi_model->getById($dosen->ID_PRODI)->NAMA_PRODI?>
 							</div>
 						</div>
 						<div class="row form-group">
@@ -144,6 +145,7 @@
 
 		</div>
 
+		<?php $this->load->view("admin/layout/modal.php"); ?>
 		<?php $this->load->view("admin/layout/js.php"); ?>
 
 </body>

@@ -13,7 +13,7 @@ class Berkas extends CI_Controller
 
     public function index()
     {
-        $data["berkas"] = $this->berkas_model->getAll();
+        $data["berkas"] = $this->berkas_model->getByIdNot($this->session->userdata('ses_id'));
         $this->load->model('kategori_model');
         $this->load->model('dosen_model');
         $this->load->view("admin/berkas/berkas", $data);

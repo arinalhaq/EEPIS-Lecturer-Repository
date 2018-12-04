@@ -60,7 +60,7 @@
 			<?php endif; ?>
 			<div class="card">
 				<div class="card-header">
-					<a href="<?php echo base_url('berkas');?>">
+					<a href="<?php echo base_url('admin/berkas');?>">
 						<button class="btn btn-icon"><i class="zmdi zmdi-chevron-left"></i></button></a>
 					<strong>Data</strong> Berkas
 				</div>

@@ -82,4 +82,9 @@ class Dosen_model extends CI_Model
     function auth_dosen($nik, $password){
         return $this->db->get_where($this->_table, ["NIK" => $nik, "PASSWORD" => $password]);
     }
+
+    function getByIdNot($id){
+        
+        return $this->db->query('SELECT * FROM '.$this->_table.' WHERE ID_DOSEN NOT IN('.$id.')')->result();
+    }
 }

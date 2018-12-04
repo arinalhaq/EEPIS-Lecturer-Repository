@@ -80,7 +80,7 @@
 										<button type="submit" name="ubah" class="btn btn-warning btn-sm">
 											Ubah
 										</button></a>-->
-									<a onclick="deleteConfirm('<?php echo site_url('berkas/del/'.$row->ID_BERKAS) ?>')" href="#!" class="btn btn-danger btn-sm">
+									<a onclick="deleteConfirm('<?php echo base_url('admin/berkas/del/'.$row->ID_BERKAS) ?>')" href="#!" class="btn btn-danger btn-sm">
 										Hapus
 									</a>
 								</td>

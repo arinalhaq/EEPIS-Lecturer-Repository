@@ -52,12 +52,12 @@
 			<?php endif; ?>
 			<div class="card">
 				<div class="card-header">
-				<a href="<?php echo base_url('jenis_berkas');?>">
+				<a href="<?php echo base_url('admin/jenis_berkas');?>">
 					<button class="btn btn-icon"><i class="zmdi zmdi-chevron-left"></i></button></a>
 					<strong>Tambah</strong> Jenis Berkas
 				</div>
 				<div class="card-body card-block">
-					<form action="<?php base_url('jenis_berkas/add');?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+					<form action="<?php base_url('admin/jenis_berkas/add');?>" method="post" enctype="multipart/form-data" class="form-horizontal">
 						<div class="row form-group">
 							<div class="col col-md-3">
 								<label for="number" class=" form-control-label">ID Jenis Berkas</label>
