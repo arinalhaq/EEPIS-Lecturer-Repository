@@ -48,6 +48,8 @@ class Berkas extends CI_Controller
         $this->load->model('kategori_model');
         $this->load->model('dosen_model');
         $this->load->model('jenis_berkas_model');
+        $this->load->model('file_model');
+        $data['file'] = $this->file_model->getByIdBerkas($id);
         if (!$data["berkas"]) show_404();
         
         $this->load->view("admin/berkas/berkas_view", $data);
