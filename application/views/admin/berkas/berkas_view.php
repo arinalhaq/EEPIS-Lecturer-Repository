@@ -113,36 +113,36 @@
 		<!-- USER DATA-->
 		<div class="user-data m-b-40">
 				<h3 class="title-3 m-b-30">
-					<i class="zmdi zmdi-account"></i>tabel dosen</h3>
+					<i class="zmdi zmdi-account"></i>File</h3>
 				<div class="table-responsive table--no-card m-b-30">
 					<table class="table table-borderless table-striped table-earning" id="datatable">
 						<thead>
 							<tr>
-								<th>NIK</th>
-								<th>Nama Dosen</th>
-								<th>Program Studi</th>
+								<th>ID Upload</th>
+								<th>Nama File</th>
+								<th>Tanggal Upload</th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach($dosen as $row) : ?>
+							<?php foreach($file as $row) : ?>
 							<tr>
 								<td>
-									<?php echo $row->NIK?>
+									<?php echo $row->ID_UPLOAD?>
 								</td>
 								
-								<td><a href="<?php echo base_url('dosen/view/').$row->ID_DOSEN?>" color="black">
-									<?php echo $row->NAMA_DOSEN?></a>
+								<td><a href="<?php echo base_url('dosen/view/').$row->ID_UPLOAD?>" color="black">
+									<?php echo $row->NAMA_FILE?></a>
 								</td>
 								<td>
-									<?php echo $this->prodi_model->getById($row->ID_PRODI)->NAMA_PRODI?>
+									<?php echo $row->TGL_UPLOAD?>
 								</td>
 								<td>
-									<a href="<?php echo base_url('dosen/edit/'.$row->ID_DOSEN)?>">
+									<a href="<?php echo base_url('dosen/edit/'.$row->ID_UPLOAD)?>">
 										<button type="submit" name="ubah" class="btn btn-warning btn-sm">
 											Ubah
 										</button></a>
-									<a onclick="deleteConfirm('<?php echo site_url('dosen/del/'.$row->ID_DOSEN) ?>')" href="#!"
+									<a onclick="deleteConfirm('<?php echo site_url('dosen/del/'.$row->ID_UPLOAD) ?>')" href="#!"
 									class="btn btn-danger btn-sm">
 											Hapus
 									</a>
