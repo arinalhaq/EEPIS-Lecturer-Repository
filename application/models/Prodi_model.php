@@ -53,6 +53,6 @@ class Prodi_model extends CI_Model
 
     function getCount(){
         
-        return $this->db->count_all($this->_table);
+        return $this->db->count_all('prodi');
     }
 }

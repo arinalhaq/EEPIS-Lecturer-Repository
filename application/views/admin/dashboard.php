@@ -48,11 +48,15 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
+<<<<<<< HEAD
                                     <h2 class="number">
                                         <?php
                                             echo $dosen;
                                         ?>  
                                     </h2>
+=======
+                                    <h2 class="number"><?php echo $dosen ?></h2>
+>>>>>>> 6d895dca13f0624609a59715c9688b57c84081de
                                     <span class="desc">jumlah dosen</span>
                                     <div class="icon">
                                         <i class="zmdi zmdi-account-o"></i>
