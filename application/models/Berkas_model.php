@@ -84,4 +84,9 @@ class Berkas_model extends CI_Model
         
         return $this->db->query('SELECT * FROM '.$this->_table.' WHERE ID_DOSEN NOT IN('.$id.')')->result();
     }
+
+    function getCount(){
+        
+        return $this->db->count_all($this->_table);
+    }
 }
