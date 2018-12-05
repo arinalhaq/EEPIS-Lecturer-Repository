@@ -21,29 +21,36 @@ class File extends CI_Controller
 
     public function add($id)
     {
+        $config['upload_path']="./upload/file/"; //path folder file upload
+        $config['allowed_types']='gif|jpg|png|txt|pdf|docx'; //type file yang boleh di upload
+        //$config['encrypt_name'] = TRUE; //enkripsi file name upload
+         
+        $this->load->library('upload',$config);
+        
         $file = $this->file_model;
-        $this->load->model('dosen_model');
-        $this->load->model('jenis_berkas_model');
+        $this->load->model('kategori_model');
+        $validation = $this->form_validation;
+        $validation->set_rules($file->rules());
+        $data['id'] = $id;
 
-        $this->load->view("admin/repository/file_form");
+        if ($validation->run()) {
+            $file->save($id);
+            $this->upload->do_upload('file');
+                
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }else{}
+        
+
+        $this->load->view("admin/repository/file_form", $data);
+        //$this->load->view("admin/repository/file_form");
     }
 
     public function do_upload()
     {
-        $config['upload_path']="./upload/file/";
-        $config['allowed_types']='gif|jpg|png|pdf|docx|doc|ppt|pptx';
-        $config['encrypt_name'] = true;
-         
-        $this->load->library('upload', $config);
-        if ($this->upload->do_upload('file')) {
-            //$data_file = array('upload_data' => $this->upload->data());
-            $this->file_model->save($this->segment->uri(4));
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
-            //$data['dosen'] = $this->dosen_model->getAll();
-            redirect('admin/file/add'.$this->segment->uri(5));
-        } else {
-            echo "error";
-        }
+        $this->file_model->save(1);
+        $this->session->set_flashdata('success', 'Berhasil disimpan');
+        //$data['dosen'] = $this->dosen_model->getAll();
+        $this->load->view("admin/repository/file_form");
     }
 
     public function edit($id = null)

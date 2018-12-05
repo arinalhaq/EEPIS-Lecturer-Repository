@@ -14,13 +14,7 @@ class Berkas_model extends CI_Model
     public function rules()
     {
         return [
-            ['field' => 'id_berkas',
-            'label' => 'id_berkas',
-            'rules' => 'required'],
-
-            ['field' => 'id_jenis_berkas',
-            'label' => 'id_jenis_berkas',
-            'rules' => 'required'],
+            
 
             ['field' => 'judul_berkas',
             'label' => 'judul_berkas',
@@ -30,13 +24,7 @@ class Berkas_model extends CI_Model
             'label' => 'deskripsi',
             'rules' => 'required'],
 
-            ['field' => 'id_kategori',
-            'label' => 'id_kategori',
-            'rules' => 'required'],
-
-            ['field' => 'id_dosen',
-            'label' => 'id_dosen',
-            'rules' => 'required'],
+            
             
         ];
     }
@@ -54,7 +42,7 @@ class Berkas_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->ID_BERKAS = uniqid();
+        $this->ID_BERKAS = uniqid(rand(), TRUE);
         $this->ID_JENIS_BERKAS = $post['id_jenis_berkas'];
         $this->JUDUL_BERKAS = $post["judul_berkas"];
         $this->DESKRIPSI = $post["deskripsi"];

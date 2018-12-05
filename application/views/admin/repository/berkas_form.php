@@ -75,12 +75,9 @@
 								<label for="nama-input" class=" form-control-label">Deskripsi</label>
 							</div>
 							<div class="col-12 col-md-9">
-								<textarea type="text" id="deskripsi" name="deskripsi" placeholder="" class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>">
+								<textarea type="text" id="deskripsi" name="deskripsi" placeholder="" class="form-control">
 								</textarea>
 								<small class="help-block form-text">Masukkan Deskripsi</small>
-								<div class="invalid-feedback">
-									<?php echo form_error('deskripsi') ?>
-								</div>
 							</div>
 						</div>
 						<div class="row form-group">

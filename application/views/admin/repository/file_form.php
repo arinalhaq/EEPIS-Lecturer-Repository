@@ -57,7 +57,7 @@
 					<strong>Tambah</strong> File
 				</div>
 				<div class="card-body card-block">
-					<form action="<?php base_url('admin/file/do_upload');?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+					<form action="<?php base_url('admin/file/add/'.$id);?>" method="post" enctype="multipart/form-data" class="form-horizontal">
 						<div class="row form-group">
 							<div class="col col-md-3">
 								<label for="number" class=" form-control-label">Nama File</label>

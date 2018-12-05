@@ -15,12 +15,12 @@ class File_model extends CI_Model
     {
         return [
 
-            ['field' => 'keterangan',
-            'label' => 'keterangan',
-            'rules' => 'required'],
-
             ['field' => 'nama_file',
             'label' => 'nama_file',
+            'rules' => 'required'],
+
+            ['field' => 'keterangan',
+            'label' => 'keterangan',
             'rules' => 'required'],
 
         ];
@@ -39,12 +39,12 @@ class File_model extends CI_Model
     public function save($id)
     {
         $post = $this->input->post();
-        $this->ID_UPLOAD = uniqid();
+        $this->ID_UPLOAD = uniqid(rand(), TRUE);
         $this->ID_BERKAS = $id;
         $this->KETERANGAN = $post["keterangan"];
         $this->NAMA_FILE = $post["nama_file"];
         $this->ID_DOSEN = $this->session->userdata('ses_id');
-        $this->TGL_UPLOAD = date();
+        $this->TGL_UPLOAD = '2018-01-01';
         $this->db->insert($this->_table, $this);
     }
 
