@@ -66,7 +66,7 @@
 					<strong>Data</strong> Dosen
 				</div>
 				<div class="card-body card-block">
-					<form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+					<!--<form action="" method="post" enctype="multipart/form-data" class="form-horizontal">-->
 						<div class="row form-group">
 							<div class="col col-md-3">
 								<label for="number" class=" form-control-label">NIK</label>
@@ -139,7 +139,7 @@
 								<?php echo $this->status_model->getById($dosen->ID_STATUS)->NAMA_STATUS?>
 							</div>
 						</div>
-					</form>
+					<!--</form>-->
 				</div>
 			</div>
 

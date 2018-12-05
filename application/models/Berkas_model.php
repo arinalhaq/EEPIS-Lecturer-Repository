@@ -54,12 +54,12 @@ class Berkas_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->ID_BERKAS = $post['id_berkas'];
+        $this->ID_BERKAS = uniqid();
         $this->ID_JENIS_BERKAS = $post['id_jenis_berkas'];
         $this->JUDUL_BERKAS = $post["judul_berkas"];
         $this->DESKRIPSI = $post["deskripsi"];
         $this->ID_KATEGORI = $post["id_kategori"];
-        $this->ID_DOSEN = $post["id_dosen"];
+        $this->ID_DOSEN = $this->session->userdata('ses_id');
         $this->db->insert($this->_table, $this);
     }
 
@@ -71,7 +71,7 @@ class Berkas_model extends CI_Model
         $this->JUDUL_BERKAS = $post["judul_berkas"];
         $this->DESKRIPSI = $post["deskripsi"];
         $this->ID_KATEGORI = $post["id_kategori"];
-        $this->ID_DOSEN = $post["id_dosen"];
+        $this->ID_DOSEN = $this->session->userdata('ses_id');
         $this->db->update($this->_table, $this, array('ID_BERKAS' => $id));
     }
 
@@ -88,5 +88,10 @@ class Berkas_model extends CI_Model
     function getCount(){
         
         return $this->db->count_all('berkas');
+    }
+
+    function getByIdDosen($id){
+        
+        return $this->db->query('SELECT * FROM '.$this->_table.' WHERE ID_DOSEN IN('.$id.')')->result();
     }
 }

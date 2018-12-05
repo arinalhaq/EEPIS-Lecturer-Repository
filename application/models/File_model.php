@@ -14,13 +14,6 @@ class File_model extends CI_Model
     public function rules()
     {
         return [
-            ['field' => 'id_upload',
-            'label' => 'id_upload',
-            'rules' => 'required'],
-
-            ['field' => 'id_berkas',
-            'label' => 'id_berkas',
-            'rules' => 'required'],
 
             ['field' => 'keterangan',
             'label' => 'keterangan',
@@ -30,13 +23,6 @@ class File_model extends CI_Model
             'label' => 'nama_file',
             'rules' => 'required'],
 
-            ['field' => 'id_dosen',
-            'label' => 'id_dosen',
-            'rules' => 'required'],
-
-            ['field' => 'tgl_upload',
-            'label' => 'tgl_upload',
-            'rules' => 'required'],
         ];
     }
 
@@ -50,15 +36,15 @@ class File_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_upload" => $id])->row();
     }
 
-    public function save()
+    public function save($id)
     {
         $post = $this->input->post();
-        $this->ID_UPLOAD = $post['id_upload'];
-        $this->ID_BERKAS = $post['id_berkas'];
+        $this->ID_UPLOAD = uniqid();
+        $this->ID_BERKAS = $id;
         $this->KETERANGAN = $post["keterangan"];
         $this->NAMA_FILE = $post["nama_file"];
-        $this->ID_DOSEN = $post["id_dosen"];
-        $this->TGL_UPLOAD = $post["tgl_upload"];
+        $this->ID_DOSEN = $this->session->userdata('ses_id');
+        $this->TGL_UPLOAD = date();
         $this->db->insert($this->_table, $this);
     }
 
