@@ -34,7 +34,7 @@
 											<li class="list-inline-item">Berkas</li>
 										</ul>
 									</div>
-									<a href="<?php echo base_url('admin/repositori/add');?>">
+									<a href="<?php echo base_url('admin/repositori/add');?>" class="pull-right">
 										<button class="au-btn au-btn-icon au-btn--green">
 											<i class="zmdi zmdi-plus">
 											</i>add item</button></a>

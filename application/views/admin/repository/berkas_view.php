@@ -122,12 +122,14 @@
 
 			<!-- USER DATA-->
 			<div class="user-data m-b-40">
-				<h3 class="title-3 m-b-30">
+				<h4 class="title-3 m-b-30">
 					<i class="zmdi zmdi-account"></i>File
-					<a href="<?php echo base_url('admin/file/add');?>" class="">
+					<a href="<?php echo base_url('admin/file/add');?>" class="pull-right">
 						<button class="au-btn au-btn-icon au-btn--green">
 							<i class="zmdi zmdi-plus">
-							</i>add file</button></a></h3>
+							</i>add file</button></a>
+				</h4>
+				
 
 				<div class="table-responsive table--no-card m-b-30">
 					<table class="table table-borderless table-striped table-earning" id="datatable">
