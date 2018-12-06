@@ -63,36 +63,36 @@ class File extends CI_Controller
 
     public function edit($id = null)
     {
-        if (!isset($id)) {
-            redirect('admin/repositori');
-        }
-
-        $config['upload_path']="./upload/file/"; //path folder file upload
-        $config['allowed_types']='gif|jpg|png|txt|pdf|docx'; //type file yang boleh di upload
-        //$config['encrypt_name'] = TRUE; //enkripsi file name upload
-         
-        $this->load->library('upload', $config);
-       
         $file = $this->file_model;
         $this->load->model('kategori_model');
         $validation = $this->form_validation;
         $validation->set_rules($file->rules());
+        $data['id'] = $id;
+        $id_berkas = $file->getById($id)->ID_BERKAS;
 
         if ($validation->run()) {
-            $file->update($id);
+            $filename = $file->update($id, $id_berkas);
+            $config['upload_path']="./upload/file/"; //path folder file upload
+            $config['allowed_types']='gif|jpg|png|txt|pdf|docx'; //type file yang boleh di upload
+            //$config['encrypt_name'] = TRUE; //enkripsi file name upload
+            $config['file_name']            = $filename;
+            $config['overwrite']			= true;
+         
+            $this->load->library('upload', $config);
+            /*$this->upload->do_upload('file');*/
+            if (!$this->upload->do_upload('file')) {
+                $error = array('error' => $this->upload->display_errors());
+                echo '<div>'.$error['error'].'</div>';
+                //redirect('your_function_which_loads_the_view','refresh');
+            }
+                
             $this->session->set_flashdata('success', 'Berhasil disimpan');
+        } else {
         }
 
-        $data["file"] = $file->getById($id);
-        $this->load->model('prodi_model');
-        $data["prodi"] = $this->prodi_model->getAll();
-        $this->load->model('status_model');
-        $data['status'] = $this->status_model->getAll();
-        if (!$data["file"]) {
-            show_404();
-        }
-        
+        $data['file'] = $file->getById($id);
         $this->load->view("admin/repository/file_edit", $data);
+        //$this->load->view("admin/repository/file_form");
     }
 
     public function del($id=null)

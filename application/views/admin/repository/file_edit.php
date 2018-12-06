@@ -54,7 +54,7 @@
 				<div class="card-header">
 				<a href="<?php echo base_url('admin/repositori');?>">
 					<button class="btn btn-icon"><i class="zmdi zmdi-chevron-left"></i></button></a>
-					<strong>Tambah</strong> File
+					<strong>Ubah</strong> File
 				</div>
 				<div class="card-body card-block">
 					<form action="<?php base_url('admin/file/add/'.$id);?>" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -63,7 +63,7 @@
 								<label for="number" class=" form-control-label">Nama File</label>
 							</div>
 							<div class="col-12 col-md-9">
-								<input type="text" id="nama_file" name="nama_file" placeholder="" class="form-control">
+								<input type="text" id="nama_file" name="nama_file" placeholder="" class="form-control" value="<?php echo $file->NAMA_FILE; ?>">
 								<small class="form-text text-muted">Masukkan Nama File</small>
 								<div class="invalid-feedback">
 									<?php echo form_error('nama_file') ?>
@@ -76,7 +76,8 @@
 							</div>
 							<div class="col-12 col-md-9">
 								<textarea type="text" id="keterangan" name="keterangan" placeholder="" class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>">
-								</textarea>
+                                    <?php echo $file->KETERANGAN; ?>
+                                </textarea>
 								<small class="help-block form-text">Masukkan Keterangan</small>
 								<div class="invalid-feedback">
 									<?php echo form_error('keterangan') ?>
@@ -88,7 +89,7 @@
 								<label for="select" class=" form-control-label">File</label>
 							</div>
 							<div class="col-12 col-md-9">
-								<input type="file" name="file">
+								<input type="file" name="file" value="<?php echo $file->NAMA_FILE; ?>">
 								<small class="help-block form-text">Masukkan File</small>
 							</div>
 						</div>
