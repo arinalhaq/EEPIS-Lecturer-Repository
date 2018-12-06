@@ -31,7 +31,7 @@ class Login extends CI_Controller
                 $this->session->set_userdata('akses', '2');
                 $this->session->set_userdata('ses_id', $data->ID_DOSEN);
                 $this->session->set_userdata('ses_nama', $data->NAMA_DOSEN);
-                //redirect('page');
+                redirect('user/repositori');
             }
         } else {  // jika username dan password tidak ditemukan atau salah
             $url=base_url('login');
