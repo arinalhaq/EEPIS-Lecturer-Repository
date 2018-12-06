@@ -42,7 +42,7 @@ class Berkas_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->ID_BERKAS = uniqid(rand(), TRUE);
+        $this->ID_BERKAS = uniqid(rand());
         $this->ID_JENIS_BERKAS = $post['id_jenis_berkas'];
         $this->JUDUL_BERKAS = $post["judul_berkas"];
         $this->DESKRIPSI = $post["deskripsi"];

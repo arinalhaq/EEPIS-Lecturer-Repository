@@ -106,7 +106,8 @@
 									<button type="submit" name="ubah" class="btn btn-warning btn-sm">
 										Ubah
 									</button></a>
-								<a onclick="deleteConfirm('<?php echo base_url('admin/berkas/del/'.$berkas->ID_BERKAS) ?>')" href="#!" class="btn btn-danger btn-sm">
+								<a onclick="deleteConfirm('<?php echo base_url('admin/repositori/del/'.$berkas->ID_BERKAS) ?>')" href="#!"
+								 class="btn btn-danger btn-sm">
 									Hapus
 								</a>
 							</div>
@@ -124,12 +125,12 @@
 			<div class="user-data m-b-40">
 				<h4 class="title-3 m-b-30">
 					<i class="zmdi zmdi-account"></i>File
-					<a href="<?php echo base_url('admin/file/add');?>" class="pull-right">
+					<a href="<?php echo base_url('admin/file/add/').$berkas->ID_BERKAS;?>" class="pull-right">
 						<button class="au-btn au-btn-icon au-btn--green">
 							<i class="zmdi zmdi-plus">
 							</i>add file</button></a>
 				</h4>
-				
+
 
 				<div class="table-responsive table--no-card m-b-30">
 					<table class="table table-borderless table-striped table-earning" id="datatable">
@@ -148,18 +149,21 @@
 									<?php echo $row->ID_UPLOAD?>
 								</td>
 
-								<td><a href="<?php echo base_url('dosen/view/').$row->ID_UPLOAD?>" color="black">
+								<td><a href="<?php echo base_url('admin/repositori/file/').$row->ID_UPLOAD?>" color="black">
 										<?php echo $row->NAMA_FILE?></a>
 								</td>
 								<td>
 									<?php echo $row->TGL_UPLOAD?>
 								</td>
 								<td>
-									<a href="<?php echo base_url('dosen/edit/'.$row->ID_UPLOAD)?>">
+									<a href="<?php echo base_url('admin/file/download/'.$row->ID_UPLOAD)?>" class="btn btn-primary btn-sm">
+										Download
+									</a>
+									<a href="<?php echo base_url('admin/file/edit/'.$row->ID_UPLOAD)?>">
 										<button type="submit" name="ubah" class="btn btn-warning btn-sm">
 											Ubah
 										</button></a>
-									<a onclick="deleteConfirm('<?php echo site_url('dosen/del/'.$row->ID_UPLOAD) ?>')" href="#!" class="btn btn-danger btn-sm">
+									<a onclick="deleteConfirm('<?php echo base_url('admin/file/del/'.$row->ID_UPLOAD) ?>')" href="#!" class="btn btn-danger btn-sm">
 										Hapus
 									</a>
 								</td>
@@ -174,6 +178,7 @@
 
 		</div>
 
+		<?php $this->load->view("admin/layout/modal.php"); ?>
 		<?php $this->load->view("admin/layout/js.php"); ?>
 
 </body>

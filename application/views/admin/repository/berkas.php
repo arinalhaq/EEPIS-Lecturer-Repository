@@ -85,7 +85,7 @@
 										<button type="submit" name="ubah" class="btn btn-warning btn-sm">
 											Ubah
 										</button></a>
-									<a onclick="deleteConfirm('<?php echo base_url('admin/berkas/del/'.$row->ID_BERKAS) ?>')" href="#!" class="btn btn-danger btn-sm">
+									<a onclick="deleteConfirm('<?php echo base_url('admin/repositori/del/'.$row->ID_BERKAS) ?>')" href="#!" class="btn btn-danger btn-sm">
 										Hapus
 									</a>
 								</td>
@@ -98,7 +98,7 @@
 				<!-- END PAGE CONTAINER-->
 			</div>
 		</div>
-
+		<?php $this->load->view("admin/layout/modal.php"); ?>
 		<?php $this->load->view("admin/layout/js.php"); ?>
 </body>
 

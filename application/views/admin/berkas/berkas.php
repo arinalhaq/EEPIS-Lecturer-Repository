@@ -65,15 +65,15 @@
 									<?php echo $row->ID_BERKAS?>
 								</td>
 								<!--<td><?php //echo $row->ID_JENIS_BERKAS?></td>-->
-								<td>
-									<?php echo $row->JUDUL_BERKAS?>
+								<td><a href="<?php echo base_url('admin/berkas/view/').$row->ID_BERKAS?>">
+									<?php echo $row->JUDUL_BERKAS?></a>
 								</td>
 								<!--<td><?php //echo $row->DESKRIPSI?></td>-->
 								<td>
-								<?php echo $this->kategori_model->getById($row->ID_KATEGORI)->NAMA_KATEGORI?>
+									<?php echo $this->kategori_model->getById($row->ID_KATEGORI)->NAMA_KATEGORI?>
 								</td>
 								<td>
-								<?php echo $this->dosen_model->getById($row->ID_DOSEN)->NAMA_DOSEN?>
+									<?php echo $this->dosen_model->getById($row->ID_DOSEN)->NAMA_DOSEN?>
 								</td>
 								<td>
 									<!--<a href="<?php //echo base_url('berkas/edit/'.$row->ID_BERKAS)?>">
@@ -94,6 +94,7 @@
 			</div>
 		</div>
 
+		<?php $this->load->view("admin/layout/modal.php"); ?>
 		<?php $this->load->view("admin/layout/js.php"); ?>
 </body>
 

@@ -16,7 +16,7 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        $data["file"] = $this->file_model->getAll();
+        $data["file"] = $this->file_model->getAllOrderDate();
         $data["dosen"] = $this->dosen_model->getCount();
         $data["berkas"] = $this->berkas_model->getCount();
         $data["prodi"] = $this->prodi_model->getCount();

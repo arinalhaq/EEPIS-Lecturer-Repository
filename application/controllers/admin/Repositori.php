@@ -95,7 +95,7 @@ class Repositori extends CI_Controller
 
     public function file($id = null)
     {
-        if (!isset($id)) redirect('admin/berkas/berkas');
+        if (!isset($id)) redirect('admin/repositori');
        
         $this->load->model('kategori_model');
         $this->load->model('dosen_model');
@@ -104,6 +104,6 @@ class Repositori extends CI_Controller
         $data['file'] = $this->file_model->getById($id);
         if (!$data["file"]) show_404();
         
-        $this->load->view("admin/berkas/file_view", $data);
+        $this->load->view("admin/repository/file_view", $data);
     }
 }

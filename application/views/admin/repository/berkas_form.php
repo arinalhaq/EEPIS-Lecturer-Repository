@@ -75,7 +75,7 @@
 								<label for="nama-input" class=" form-control-label">Deskripsi</label>
 							</div>
 							<div class="col-12 col-md-9">
-								<textarea type="text" id="deskripsi" name="deskripsi" placeholder="" class="form-control">
+								<textarea type="text" id="deskripsi" name="deskripsi" class="form-control">Masukkan Deskripsi
 								</textarea>
 								<small class="help-block form-text">Masukkan Deskripsi</small>
 							</div>

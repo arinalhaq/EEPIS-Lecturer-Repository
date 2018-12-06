@@ -39,13 +39,14 @@ class File_model extends CI_Model
     public function save($id)
     {
         $post = $this->input->post();
-        $this->ID_UPLOAD = uniqid(rand(), TRUE);
+        $this->ID_UPLOAD = uniqid();
         $this->ID_BERKAS = $id;
         $this->KETERANGAN = $post["keterangan"];
         $this->NAMA_FILE = $post["nama_file"];
         $this->ID_DOSEN = $this->session->userdata('ses_id');
         $this->TGL_UPLOAD = '2018-01-01';
         $this->db->insert($this->_table, $this);
+        return $this->ID_UPLOAD;
     }
 
     public function update()
@@ -68,5 +69,10 @@ class File_model extends CI_Model
     public function getByIdBerkas($id)
     {
         return $this->db->get_where($this->_table, ["id_berkas" => $id])->result();
+    }
+
+    function getAllOrderDate(){
+        
+        return $this->db->query('SELECT * FROM '.$this->_table.' ORDER BY TGL_UPLOAD DESC')->result();
     }
 }

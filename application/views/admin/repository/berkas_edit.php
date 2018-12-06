@@ -107,7 +107,7 @@
 							<div class="col-12 col-md-9">
 								<select name="id_jenis_berkas" id="select" class="form-control">
 									<?php foreach($jenis_berkas as $row) : ?>
-									<option value="<?php echo $row->ID_JENIS_BERKAS?>">
+									<option value="<?php echo $row->ID_JENIS_BERKAS?>" <?php if($row->ID_JENIS_BERKAS==$berkas->ID_JENIS_BERKAS) echo 'selected';?>>
 										<?php echo $row->NAMA_JENIS_BERKAS?>
 									</option>
 									<?php endforeach; ?>

@@ -26,7 +26,7 @@
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
 											<li class="list-inline-item active">
-												<a href="<?php echo base_url();?>">Home</a>
+												<a href="<?php echo base_url('admin/dashboard');?>">Home</a>
 											</li>
 											<li class="list-inline-item seprate">
 												<span>/</span>
@@ -102,25 +102,22 @@
 						</div>
 						<div class="row form-group">
 							<div class="col col-md-3">
-								<button type="submit" class="btn btn-warning btn-sm">
-											Ubah
-										</button>
-										<button type="reset" class="btn btn-danger btn-sm">
-											Hapus
-										</button>
+								<a onclick="deleteConfirm('<?php echo base_url('admin/berkas/del/'.$berkas->ID_BERKAS) ?>')" href="#!" class="btn btn-danger btn-sm">
+									Hapus
+								</a>
 							</div>
 							<!--
 							<div class="col-12 col-md-9">
 								<?php echo $berkas->DESKRIPSI?>
 							</div> -->
 						</div>
-						
+
 					</form>
 				</div>
 			</div>
 
-		<!-- USER DATA-->
-		<div class="user-data m-b-40">
+			<!-- USER DATA-->
+			<div class="user-data m-b-40">
 				<h3 class="title-3 m-b-30">
 					<i class="zmdi zmdi-account"></i>File</h3>
 				<div class="table-responsive table--no-card m-b-30">
@@ -139,21 +136,20 @@
 								<td>
 									<?php echo $row->ID_UPLOAD?>
 								</td>
-								
-								<td><a href="<?php echo base_url('dosen/view/').$row->ID_UPLOAD?>" color="black">
-									<?php echo $row->NAMA_FILE?></a>
+
+								<td><a href="<?php echo base_url('admin/berkas/file/').$row->ID_UPLOAD?>" color="black">
+										<?php echo $row->NAMA_FILE?></a>
 								</td>
 								<td>
 									<?php echo $row->TGL_UPLOAD?>
 								</td>
 								<td>
-									<a href="<?php echo base_url('dosen/edit/'.$row->ID_UPLOAD)?>">
+									<!--<a href="<?php echo base_url('admin/file/edit/'.$row->ID_UPLOAD)?>">
 										<button type="submit" name="ubah" class="btn btn-warning btn-sm">
 											Ubah
-										</button></a>
-									<a onclick="deleteConfirm('<?php echo site_url('dosen/del/'.$row->ID_UPLOAD) ?>')" href="#!"
-									class="btn btn-danger btn-sm">
-											Hapus
+										</button></a>-->
+									<a onclick="deleteConfirm('<?php echo site_url('admin/berkas/delfile/'.$row->ID_UPLOAD) ?>')" href="#!" class="btn btn-danger btn-sm">
+										Hapus
 									</a>
 								</td>
 							</tr>
@@ -167,6 +163,8 @@
 
 		</div>
 
+
+		<?php $this->load->view("admin/layout/modal.php"); ?>
 		<?php $this->load->view("admin/layout/js.php"); ?>
 
 </body>

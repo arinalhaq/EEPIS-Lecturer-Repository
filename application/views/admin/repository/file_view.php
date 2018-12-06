@@ -49,7 +49,7 @@
 			<!-- END BREADCRUMB-->
 			<div class="card">
 				<div class="card-header">
-					<a href="<?php echo base_url('admin/berkas');?>">
+					<a href="<?php echo base_url('admin/repositori/view/'.$file->ID_BERKAS);?>">
 						<button class="btn btn-icon"><i class="zmdi zmdi-chevron-left"></i></button></a>
 					<strong>Data</strong> File
 				</div>
@@ -74,7 +74,7 @@
 
 						<div class="row form-group">
 							<div class="col col-md-3">
-								<a href="<?php echo base_url('admin/berkas/download/'.$file->ID_UPLOAD)?>" class="btn btn-primary btn-sm">
+								<a href="<?php echo base_url('admin/file/download/'.$file->ID_UPLOAD)?>" class="btn btn-primary btn-sm">
 									Download
 								</a>
 								<a onclick="deleteConfirm('<?php echo base_url('admin/berkas/delfile/'.$file->ID_UPLOAD) ?>')" href="#!" class="btn btn-danger btn-sm">

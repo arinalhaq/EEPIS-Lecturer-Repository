@@ -9,6 +9,7 @@ class File extends CI_Controller
         parent::__construct();
         $this->load->model("file_model");
         $this->load->library('form_validation');
+        $this->load->helper(array('url','download'));
     }
 
     public function index()
@@ -21,11 +22,6 @@ class File extends CI_Controller
 
     public function add($id)
     {
-        $config['upload_path']="./upload/file/"; //path folder file upload
-        $config['allowed_types']='gif|jpg|png|txt|pdf|docx'; //type file yang boleh di upload
-        //$config['encrypt_name'] = TRUE; //enkripsi file name upload
-         
-        $this->load->library('upload',$config);
         
         $file = $this->file_model;
         $this->load->model('kategori_model');
@@ -34,12 +30,24 @@ class File extends CI_Controller
         $data['id'] = $id;
 
         if ($validation->run()) {
-            $file->save($id);
-            $this->upload->do_upload('file');
+            $filename = $file->save($id);
+            $config['upload_path']="./upload/file/"; //path folder file upload
+            $config['allowed_types']='gif|jpg|png|txt|pdf|docx'; //type file yang boleh di upload
+            //$config['encrypt_name'] = TRUE; //enkripsi file name upload
+            $config['file_name']            = $filename;
+            //$config['overwrite']			= true;
+         
+            $this->load->library('upload', $config);
+            /*$this->upload->do_upload('file');*/
+            if (!$this->upload->do_upload('file')) {
+                $error = array('error' => $this->upload->display_errors());
+                echo '<div>'.$error['error'].'</div>';
+                //redirect('your_function_which_loads_the_view','refresh');
+            }
                 
             $this->session->set_flashdata('success', 'Berhasil disimpan');
-        }else{}
-        
+        } else {
+        }
 
         $this->load->view("admin/repository/file_form", $data);
         //$this->load->view("admin/repository/file_form");
@@ -58,14 +66,15 @@ class File extends CI_Controller
         if (!isset($id)) {
             redirect('admin/repositori');
         }
+
+        $config['upload_path']="./upload/file/"; //path folder file upload
+        $config['allowed_types']='gif|jpg|png|txt|pdf|docx'; //type file yang boleh di upload
+        //$config['encrypt_name'] = TRUE; //enkripsi file name upload
+         
+        $this->load->library('upload', $config);
        
         $file = $this->file_model;
         $this->load->model('kategori_model');
-        $this->load->model('dosen_model');
-        $this->load->model('jenis_berkas_model');
-        $data['kategori'] = $this->kategori_model->getAll();
-        $data['dosen'] = $this->dosen_model->getAll();
-        $data['jenis_berkas'] = $this->jenis_berkas_model->getAll();
         $validation = $this->form_validation;
         $validation->set_rules($file->rules());
 
@@ -92,7 +101,7 @@ class File extends CI_Controller
             show_404();
         }
         
-        if ($this->_model->delete($id)) {
+        if ($this->file_model->delete($id)) {
             redirect(site_url('admin/repositori'));
         }
     }
@@ -132,6 +141,17 @@ class File extends CI_Controller
             show_404();
         }
         
-        $this->load->view("admin/berkas/file_view", $data);
+        $this->load->view("admin/repository/file_view", $data);
+    }
+
+    public function download($id){
+        force_download('upload/file/'.$id.'.txt', NULL);
+        force_download('upload/file/'.$id.'.pdf', NULL);
+        force_download('upload/file/'.$id.'.jpg', NULL);
+        force_download('upload/file/'.$id.'.png', NULL);
+        force_download('upload/file/'.$id.'.docx', NULL);
+        force_download('upload/file/'.$id.'.gif', NULL);
+        force_download('upload/file/'.$id.'.pptx', NULL);
+        redirect('admin/repositori/file/'.$id, 'refresh');
     }
 }
