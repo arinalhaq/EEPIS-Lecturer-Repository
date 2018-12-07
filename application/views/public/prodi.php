@@ -90,42 +90,43 @@
 		</div>
 
 		<section class="section section-lg pt-lg-0 mt--200">
-			<!-- Table -->
-			<div class="row">
-				<div class="col">
-					<div class="card shadow">
-						<div class="table-responsive">
-							<table class="table align-items-center table-flush" id="datatable">
-								<thead>
-									<tr>
-										<th>NIK</th>
-										<th>Nama Dosen</th>
-										<th>Program Studi</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php foreach($dosen as $row) : ?>
-									<tr>
-										<td>
-											<?php echo $row->NIK?>
-										</td>
+			<div class="container">
+				<!-- Table -->
+				<div class="row">
+					<div class="col">
+						<div class="card shadow">
+							<div class="table-responsive">
+								<table class="table align-items-center table-flush" id="datatable">
+									<thead>
+										<tr>
+											<th>NIK</th>
+											<th>Nama Dosen</th>
+											<th>Program Studi</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php foreach($dosen as $row) : ?>
+										<tr>
+											<td>
+												<?php echo $row->NIK?>
+											</td>
 
-										<td>
-											<a href="<?php echo base_url('mahasiswa/dosen/').$row->ID_DOSEN?>" color="black">
-												<?php echo $row->NAMA_DOSEN?></a>
-										</td>
-										<td>
-											<?php echo $this->prodi_model->getById($row->ID_PRODI)->NAMA_PRODI?>
-										</td>
-									</tr>
-									<?php endforeach; ?>
-								</tbody>
-							</table>
+											<td>
+												<a href="<?php echo base_url('mahasiswa/dosen/').$row->ID_DOSEN?>" color="black">
+													<?php echo $row->NAMA_DOSEN?></a>
+											</td>
+											<td>
+												<?php echo $this->prodi_model->getById($row->ID_PRODI)->NAMA_PRODI?>
+											</td>
+										</tr>
+										<?php endforeach; ?>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
 		</section>
 
 
