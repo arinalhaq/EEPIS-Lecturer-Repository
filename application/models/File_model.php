@@ -44,21 +44,21 @@ class File_model extends CI_Model
         $this->KETERANGAN = $post["keterangan"];
         $this->NAMA_FILE = $post["nama_file"];
         $this->ID_DOSEN = $this->session->userdata('ses_id');
-        $this->TGL_UPLOAD = '2018-01-01';
+        $this->TGL_UPLOAD = date("y-m-d");
         $this->db->insert($this->_table, $this);
         return $this->ID_UPLOAD;
     }
 
-    public function update()
+    public function update($id, $id_berkas)
     {
         $post = $this->input->post();
-        $this->ID_UPLOAD = $post['id_upload'];
-        $this->ID_BERKAS = $post['id_berkas'];
+        $this->ID_UPLOAD = $id;
+        $this->ID_BERKAS = $id_berkas;
         $this->KETERANGAN = $post["keterangan"];
         $this->NAMA_FILE = $post["nama_file"];
-        $this->ID_DOSEN = $post["id_dosen"];
-        $this->TGL_UPLOAD = $post["tgl_upload"];
-        $this->db->update($this->_table, $this, array('ID_UPLOAD' => $post['id']));
+        $this->ID_DOSEN =$this->session->userdata('ses_id');
+        $this->TGL_UPLOAD = date("y-m-d");
+        $this->db->update($this->_table, $this, array('ID_UPLOAD' => $id));
     }
 
     public function delete($id)
