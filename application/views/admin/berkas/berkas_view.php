@@ -144,10 +144,9 @@
 									<?php echo $row->TGL_UPLOAD?>
 								</td>
 								<td>
-									<!--<a href="<?php echo base_url('admin/file/edit/'.$row->ID_UPLOAD)?>">
-										<button type="submit" name="ubah" class="btn btn-warning btn-sm">
-											Ubah
-										</button></a>-->
+									<a href="<?php echo base_url('admin/berkas/download/'.$row->ID_UPLOAD)?>" class="btn btn-primary btn-sm">
+										Download
+									</a>
 									<a onclick="deleteConfirm('<?php echo site_url('admin/berkas/delfile/'.$row->ID_UPLOAD) ?>')" href="#!" class="btn btn-danger btn-sm">
 										Hapus
 									</a>

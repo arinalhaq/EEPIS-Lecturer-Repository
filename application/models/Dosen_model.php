@@ -92,4 +92,9 @@ class Dosen_model extends CI_Model
 
         return $this->db->count_all('dosen');
     }
+
+    function getByIdProdi($id){
+        
+        return $this->db->query('SELECT * FROM '.$this->_table.' WHERE ID_PRODI IN('.$id.')')->result();
+    }
 }

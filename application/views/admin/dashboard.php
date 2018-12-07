@@ -103,7 +103,7 @@
                                                 <th>nama file</th>
                                                 <th>nama berkas</th>
                                                 <th>dosen</th>
-                                                <th>prodi</th>
+                                                
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -122,11 +122,7 @@
                                                 </td>
                                                 <td>
                                                     <?php echo $this->dosen_model->getById($row->ID_DOSEN)->NAMA_DOSEN ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $this->prodi_model->getById($row->ID_DOSEN)->NAMA_PRODI ?>
-                                                </td>
-                                                <td>
+                                                
                                                     <a href="<?php echo base_url('dosen/edit/'.$row->ID_UPLOAD)?>">
                                                         <button type="submit" name="ubah" class="btn btn-warning btn-sm">
                                                             Ubah

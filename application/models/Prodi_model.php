@@ -55,4 +55,9 @@ class Prodi_model extends CI_Model
         
         return $this->db->count_all('prodi');
     }
+
+    function getByIdDosen($id){
+        
+        return $this->db->query('SELECT * FROM '.$this->_table.' WHERE ID_DOSEN IN('.$id.')')->result();
+    }
 }

@@ -82,4 +82,9 @@ class Berkas_model extends CI_Model
         
         return $this->db->query('SELECT * FROM '.$this->_table.' WHERE ID_DOSEN IN('.$id.')')->result();
     }
+
+    function getByIdDosenKategori($id, $id_kategori){
+        
+        return $this->db->query('SELECT * FROM '.$this->_table.' WHERE ID_DOSEN IN('.$id.') AND ID_KATEGORI IN ('.$id_kategori.')')->result();
+    }
 }

@@ -116,4 +116,16 @@ class Berkas extends CI_Controller
             redirect(site_url('admin/berkas'));
         }
     }
+
+    public function download($id){
+        $this->load->helper(array('url', 'download'));
+        force_download('upload/file/'.$id.'.txt', NULL);
+        force_download('upload/file/'.$id.'.pdf', NULL);
+        force_download('upload/file/'.$id.'.jpg', NULL);
+        force_download('upload/file/'.$id.'.png', NULL);
+        force_download('upload/file/'.$id.'.docx', NULL);
+        force_download('upload/file/'.$id.'.gif', NULL);
+        force_download('upload/file/'.$id.'.pptx', NULL);
+        redirect('user/repositori/file/'.$id, 'refresh');
+    }
 }
