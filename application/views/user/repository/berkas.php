@@ -6,7 +6,7 @@
 <body class="animsition">
 	<div class="page-wrapper">
 		<!-- MENU SIDEBAR-->
-		<?php $this->load->view("admin/layout/sidebar.php"); ?>
+		<?php $this->load->view("user/repository/sidebar.php"); ?>
 		<!-- END MENU SIDEBAR-->
 
 		<!-- PAGE CONTAINER-->
