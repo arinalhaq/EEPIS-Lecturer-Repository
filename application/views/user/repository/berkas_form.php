@@ -125,7 +125,7 @@
 
 		</div>
 
-		<?php $this->load->view("user/layout/js.php"); ?>
+		<?php $this->load->view("admin/layout/js.php"); ?>
 
 </body>
 

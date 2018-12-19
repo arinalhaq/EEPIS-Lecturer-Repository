@@ -22,19 +22,19 @@ class File extends CI_Controller
 
     public function add($id)
     {
-        
         $file = $this->file_model;
         $this->load->model('kategori_model');
         $validation = $this->form_validation;
         $validation->set_rules($file->rules());
         $data['id'] = $id;
+        $post = $this->input->post();
 
         if ($validation->run()) {
-            $filename = $file->save($id);
+            //$filename = $file->save($id);
             $config['upload_path']="./upload/file/"; //path folder file upload
             $config['allowed_types']='gif|jpg|png|txt|pdf|docx'; //type file yang boleh di upload
             //$config['encrypt_name'] = TRUE; //enkripsi file name upload
-            $config['file_name']            = $filename;
+            //$config['file_name']            = $filename;
             //$config['overwrite']			= true;
          
             $this->load->library('upload', $config);
@@ -44,6 +44,9 @@ class File extends CI_Controller
                 echo '<div>'.$error['error'].'</div>';
                 //redirect('your_function_which_loads_the_view','refresh');
             }
+            $post['file'] = $this->upload->data()['file_name'];
+            $file->save($id, $post);
+            
                 
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         } else {
@@ -68,26 +71,31 @@ class File extends CI_Controller
         $validation = $this->form_validation;
         $validation->set_rules($file->rules());
         $data['id'] = $id;
-        $id_berkas = $file->getById($id)->ID_BERKAS;
+        $post = $this->input->post();
+        $post['id_berkas'] = $file->getById($id)->ID_BERKAS;
 
         if ($validation->run()) {
-            $filename = $file->update($id, $id_berkas);
+            //$filename[] = $file->update($id, $id_berkas);
             $config['upload_path']="./upload/file/"; //path folder file upload
             $config['allowed_types']='gif|jpg|png|txt|pdf|docx'; //type file yang boleh di upload
             //$config['encrypt_name'] = TRUE; //enkripsi file name upload
-            $config['file_name']            = $filename;
-            $config['overwrite']			= true;
+            //$config['file_name']            = $filename;
+            //$config['overwrite']			= TRUE;
          
             $this->load->library('upload', $config);
             /*$this->upload->do_upload('file');*/
             if (!$this->upload->do_upload('file')) {
-                $error = array('error' => $this->upload->display_errors());
-                echo '<div>'.$error['error'].'</div>';
+                //$error = array('error' => $this->upload->display_errors());
+                //echo '<div>'.$error['error'].'</div>';
                 //redirect('your_function_which_loads_the_view','refresh');
+                $post['file'] = $file->getById($id)->NAMA_UPLOAD;
+            } else {
+                array_map('unlink', glob(FCPATH."upload/file/".$file->getById($id)->NAMA_UPLOAD));
+                $post['file'] = $this->upload->data()['file_name'];
             }
+            $file->update($id, $post);
                 
             $this->session->set_flashdata('success', 'Berhasil disimpan');
-        } else {
         }
 
         $data['file'] = $file->getById($id);
@@ -100,10 +108,11 @@ class File extends CI_Controller
         if (!isset($id)) {
             show_404();
         }
+        $file = $this->file_model;
         
-        if ($this->file_model->delete($id)) {
-            redirect(site_url('admin/repositori'));
-        }
+        array_map('unlink', glob(FCPATH."upload/file/".$file->getById($id)->NAMA_UPLOAD));
+        $file->delete($id);   
+        redirect(site_url('admin/repositori'));
     }
 
     public function view($id = null)
@@ -144,14 +153,10 @@ class File extends CI_Controller
         $this->load->view("admin/repository/file_view", $data);
     }
 
-    public function download($id){
-        force_download('upload/file/'.$id.'.txt', NULL);
-        force_download('upload/file/'.$id.'.pdf', NULL);
-        force_download('upload/file/'.$id.'.jpg', NULL);
-        force_download('upload/file/'.$id.'.png', NULL);
-        force_download('upload/file/'.$id.'.docx', NULL);
-        force_download('upload/file/'.$id.'.gif', NULL);
-        force_download('upload/file/'.$id.'.pptx', NULL);
-        redirect('admin/repositori/file/'.$id, 'refresh');
+    public function download($id)
+    {
+        $file = $this->file_model->getById($id);
+        force_download('upload/file/'.$file->NAMA_UPLOAD, null);
+        redirect('admin/repositori/view/'.$file->ID_BERKAS, 'refresh');
     }
 }

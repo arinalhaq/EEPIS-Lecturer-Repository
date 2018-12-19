@@ -122,7 +122,8 @@
                                                 </td>
                                                 <td>
                                                     <?php echo $this->dosen_model->getById($row->ID_DOSEN)->NAMA_DOSEN ?>
-                                                
+                                                </td>
+                                                <td>
                                                     <a href="<?php echo base_url('dosen/edit/'.$row->ID_UPLOAD)?>">
                                                         <button type="submit" name="ubah" class="btn btn-warning btn-sm">
                                                             Ubah
