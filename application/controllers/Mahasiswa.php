@@ -9,6 +9,7 @@ class Mahasiswa extends CI_Controller
         parent::__construct();
         $this->load->model("dosen_model");
         $this->load->library('form_validation');
+        $this->load->helper(array('url', 'download'));
     }
 
     public function index()
@@ -62,7 +63,7 @@ class Mahasiswa extends CI_Controller
         $this->load->model('jenis_berkas_model');
         $this->load->model('kategori_model');
         $data['berkas'] = $this->berkas_model->getByIdDosen($id);
-        if (!$data["berkas"]) show_404();
+        if (!$data["dosen"]) show_404();
         
         $this->load->view("public/berkas", $data);
     }
@@ -121,16 +122,12 @@ class Mahasiswa extends CI_Controller
         $this->load->view("public/file", $data);
     }
 
-    public function download($id){
-        $this->load->helper(array('url', 'download'));
-        force_download('upload/file/'.$id.'.txt', NULL);
-        force_download('upload/file/'.$id.'.pdf', NULL);
-        force_download('upload/file/'.$id.'.jpg', NULL);
-        force_download('upload/file/'.$id.'.png', NULL);
-        force_download('upload/file/'.$id.'.docx', NULL);
-        force_download('upload/file/'.$id.'.gif', NULL);
-        force_download('upload/file/'.$id.'.pptx', NULL);
-        redirect('mahasiswa/file/'.$id, 'refresh');
+    public function download($id)
+    {
+        $this->load->model('file_model');
+        $file = $this->file_model->getById($id);
+        force_download('upload/file/'.$file->NAMA_UPLOAD, null);
+        redirect('mahasiswa/file/'.$file->ID_BERKAS, 'refresh');
     }
 }
 
