@@ -31,7 +31,11 @@
 											<li class="list-inline-item seprate">
 												<span>/</span>
 											</li>
-											<li class="list-inline-item">Dosen</li>
+											<li class="list-inline-item">Admin</li>
+											<li class="list-inline-item seprate">
+												<span>/</span>
+											</li>
+											<li class="list-inline-item">File</li>
 											<li class="list-inline-item seprate">
 												<span>/</span>
 											</li>
