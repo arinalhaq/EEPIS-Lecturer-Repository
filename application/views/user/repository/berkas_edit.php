@@ -26,12 +26,16 @@
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
 											<li class="list-inline-item active">
-												<a href="<?php echo base_url();?>">Home</a>
+												<a href="">Home</a>
 											</li>
 											<li class="list-inline-item seprate">
 												<span>/</span>
 											</li>
-											<li class="list-inline-item">berkas</li>
+											<li class="list-inline-item">Dosen</li>
+											<li class="list-inline-item seprate">
+												<span>/</span>
+											</li>
+											<li class="list-inline-item">Berkas</li>
 											<li class="list-inline-item seprate">
 												<span>/</span>
 											</li>
@@ -52,7 +56,7 @@
 			<?php endif; ?>
 			<div class="card">
 				<div class="card-header">
-				<a href="<?php echo base_url('admin/repositori');?>">
+				<a href="<?php echo base_url('user/repositori');?>">
 					<button class="btn btn-icon"><i class="zmdi zmdi-chevron-left"></i></button></a>
 					<strong>Edit</strong> Berkas
 				</div>

@@ -26,12 +26,17 @@
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
 											<li class="list-inline-item active">
-												<a href="<?php echo base_url();?>">Home</a>
+												<a href="">Home</a>
 											</li>
+											
 											<li class="list-inline-item seprate">
 												<span>/</span>
 											</li>
-											<li class="list-inline-item">Berkas</li>
+											<li class="list-inline-item">Dosen</li>
+											<li class="list-inline-item seprate">
+												<span>/</span>
+											</li>
+											<li class="list-inline-item">Repository</li>
 										</ul>
 									</div>
 									<a href="<?php echo base_url('user/repositori/add');?>" class="pull-right">
