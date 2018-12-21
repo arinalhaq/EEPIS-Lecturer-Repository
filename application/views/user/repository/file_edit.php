@@ -6,7 +6,7 @@
 <body class="animsition">
 	<div class="page-wrapper">
 		<!-- MENU SIDEBAR-->
-		<?php $this->load->view("admin/layout/sidebar.php"); ?>
+		<?php $this->load->view("user/repository/sidebar.php"); ?>
 		<!-- END MENU SIDEBAR-->
 
 		<!-- PAGE CONTAINER-->
@@ -26,12 +26,16 @@
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
 											<li class="list-inline-item active">
-												<a href="<?php echo base_url();?>">Home</a>
+												<a href="">Home</a>
 											</li>
 											<li class="list-inline-item seprate">
 												<span>/</span>
 											</li>
 											<li class="list-inline-item">Dosen</li>
+											<li class="list-inline-item seprate">
+												<span>/</span>
+											</li>
+											<li class="list-inline-item">File</li>
 											<li class="list-inline-item seprate">
 												<span>/</span>
 											</li>

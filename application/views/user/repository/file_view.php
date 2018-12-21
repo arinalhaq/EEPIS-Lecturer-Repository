@@ -31,11 +31,15 @@
 											<li class="list-inline-item seprate">
 												<span>/</span>
 											</li>
-											<li class="list-inline-item">Berkas</li>
+											<li class="list-inline-item">Dosen</li>
 											<li class="list-inline-item seprate">
 												<span>/</span>
 											</li>
-											<li class="list-inline-item">view</li>
+											<li class="list-inline-item">Repository</li>
+											<li class="list-inline-item seprate">
+												<span>/</span>
+											</li>
+											<li class="list-inline-item">File</li>
 										</ul>
 									</div>
 									<div>

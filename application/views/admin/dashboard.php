@@ -25,8 +25,12 @@
                                         <span class="au-breadcrumb-span">You are here:</span>
                                         <ul class="list-unstyled list-inline au-breadcrumb__list">
                                             <li class="list-inline-item active">
-                                                <a href="index.php">Home</a>
+                                                <a href="">Home</a>
                                             </li>
+                                            <li class="list-inline-item seprate">
+                                                <span>/</span>
+                                            </li>
+                                            <li class="list-inline-item">Admin</li>
                                             <li class="list-inline-item seprate">
                                                 <span>/</span>
                                             </li>
