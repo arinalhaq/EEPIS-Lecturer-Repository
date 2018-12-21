@@ -55,7 +55,7 @@ class Kategori extends CI_Controller
         if (!isset($id)) show_404();
         
         if ($this->kategori_model->delete($id)) {
-            redirect(site_url('kategori'));
+            redirect(site_url('admin/kategori'));
         }
     }
 }

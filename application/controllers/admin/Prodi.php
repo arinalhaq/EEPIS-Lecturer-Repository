@@ -55,7 +55,7 @@ class Prodi extends CI_Controller
         if (!isset($id)) show_404();
         
         if ($this->prodi_model->delete($id)) {
-            redirect(site_url('prodi'));
+            redirect(site_url('admin/prodi'));
         }
     }
 }

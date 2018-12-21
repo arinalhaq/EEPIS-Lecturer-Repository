@@ -65,7 +65,7 @@ class Dosen extends CI_Controller
         if (!isset($id)) show_404();
         
         if ($this->dosen_model->delete($id)) {
-            redirect(site_url('dosen'));
+            redirect(site_url('admin/dosen'));
         }
     }
 

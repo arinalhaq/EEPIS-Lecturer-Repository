@@ -55,7 +55,7 @@ class Jenis_berkas extends CI_Controller
         if (!isset($id)) show_404();
         
         if ($this->jenis_berkas_model->delete($id)) {
-            redirect(site_url('jenis_berkas'));
+            redirect(site_url('admin/jenis_berkas'));
         }
     }
 }
