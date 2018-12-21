@@ -7,7 +7,7 @@
 	<div class="menu-sidebar2__content js-scrollbar1">
 		<div class="account2">
 			<!--<div class="image img-cir img-120">
-				<img src="<?php //echo base_url('images/icon/avatar-big-01.jpg') ?>" alt="John Doe" />
+				<img src="<?php //echo base_url('images/icon/avatar-big-01.jpg')?>" alt="John Doe" />
 			</div>-->
 			<h4 class="name">Hello, <?php echo $this->session->userdata('ses_nama');?></h4>
 			<a href="<?php echo base_url('login/logout')?>">Sign out</a>

@@ -104,7 +104,7 @@
                                                 <th>nama berkas</th>
                                                 <th>dosen</th>
                                                 
-                                                <th></th>
+                                                <!--<th></th>-->
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -123,16 +123,16 @@
                                                 <td>
                                                     <?php echo $this->dosen_model->getById($row->ID_DOSEN)->NAMA_DOSEN ?>
                                                 </td>
-                                                <td>
-                                                    <a href="<?php echo base_url('dosen/edit/'.$row->ID_UPLOAD)?>">
+                                                <!--<td>
+                                                    <a href="<?php echo base_url('file/edit/'.$row->ID_UPLOAD)?>">
                                                         <button type="submit" name="ubah" class="btn btn-warning btn-sm">
                                                             Ubah
                                                         </button></a>
-                                                    <a onclick="deleteConfirm('<?php echo site_url('dosen/del/'.$row->ID_UPLOAD) ?>')" href="#!"
+                                                    <a onclick="deleteConfirm('<?php echo site_url('file/del/'.$row->ID_UPLOAD) ?>')" href="#!"
                                                     class="btn btn-danger btn-sm">
                                                             Hapus
                                                     </a>
-                                                </td>
+                                                </td>-->
                                             </tr>
                                             <?php endforeach; ?>
                                         </tbody>

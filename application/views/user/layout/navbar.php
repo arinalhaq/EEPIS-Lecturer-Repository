@@ -10,7 +10,7 @@
 				<div class="header-button2">
 				
 					<div class="header-button-item">
-					<a href="<?php echo base_url('admin/dashboard/edit/'.$this->session->userdata('ses_id'));?>">
+					<a href="<?php echo base_url('user/repositori/editDiri/'.$this->session->userdata('ses_id'));?>">
 						<i class="zmdi zmdi-account"></i>
 					</a>
 					</div>

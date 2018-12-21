@@ -106,4 +106,25 @@ class Repositori extends CI_Controller
         
         $this->load->view("user/repository/file_view", $data);
     }
+
+    public function editDiri($id){
+        $this->load->model('dosen_model');
+        $dosen = $this->dosen_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($dosen->rules());
+
+        if ($validation->run()) {
+            $dosen->update($id);
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }
+
+        $data["dosen"] = $dosen->getById($id);
+        $this->load->model('prodi_model');
+        $data["prodi"] = $this->prodi_model->getAll();
+        $this->load->model('status_model');
+        $data['status'] = $this->status_model->getAll();
+        if (!$data["dosen"]) show_404();
+        
+        $this->load->view("user/dosen_edit", $data);
+    }
 }

@@ -129,5 +129,7 @@ class Mahasiswa extends CI_Controller
         force_download('upload/file/'.$file->NAMA_UPLOAD, null);
         redirect('mahasiswa/file/'.$file->ID_BERKAS, 'refresh');
     }
+
+    
 }
 

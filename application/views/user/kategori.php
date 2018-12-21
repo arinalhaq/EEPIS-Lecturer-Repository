@@ -63,7 +63,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach($berkas as $row) : ?>
+							<?php foreach ($berkas as $row) : ?>
 							<tr>
 								<td>
 									<?php echo $row->ID_BERKAS?>

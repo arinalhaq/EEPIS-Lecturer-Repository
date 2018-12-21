@@ -86,7 +86,7 @@
 							</div>
 							<div class="col-12 col-md-9">
 								<select name="id_kategori" id="select" class="form-control">
-									<?php foreach($kategori as $row) : ?>
+									<?php foreach ($kategori as $row) : ?>
 									<option value="<?php echo $row->ID_KATEGORI?>">
 										<?php echo $row->NAMA_KATEGORI?>
 									</option>
@@ -101,7 +101,7 @@
 							</div>
 							<div class="col-12 col-md-9">
 								<select name="id_jenis_berkas" id="select" class="form-control">
-									<?php foreach($jenis_berkas as $row) : ?>
+									<?php foreach ($jenis_berkas as $row) : ?>
 									<option value="<?php echo $row->ID_JENIS_BERKAS?>">
 										<?php echo $row->NAMA_JENIS_BERKAS?>
 									</option>

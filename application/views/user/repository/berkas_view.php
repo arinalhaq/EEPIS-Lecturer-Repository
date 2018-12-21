@@ -143,7 +143,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach($file as $row) : ?>
+							<?php foreach ($file as $row) : ?>
 							<tr>
 								<td>
 									<?php echo $row->ID_UPLOAD?>

@@ -12,7 +12,7 @@
 		<!-- PAGE CONTAINER-->
 		<div class="page-container2">
 			<!-- HEADER DESKTOP-->
-			<?php $this->load->view("admin/layout/navbar.php"); ?>
+			<?php $this->load->view("user/layout/navbar.php"); ?>
 			<!-- END HEADER DESKTOP-->
 
 			<!-- BREADCRUMB-->
@@ -63,7 +63,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach($berkas as $row) : ?>
+							<?php foreach ($berkas as $row) : ?>
 							<tr>
 								<td>
 									<?php echo $row->ID_BERKAS?>
