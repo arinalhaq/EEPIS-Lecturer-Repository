@@ -118,8 +118,8 @@
                                                     <?php echo $row->TGL_UPLOAD?>
                                                 </td>
                                                 
-                                                <td><a href="<?php echo base_url('dosen/view/').$row->ID_UPLOAD?>" color="black">
-                                                    <?php echo $row->NAMA_FILE?></a>
+                                                <td><!--<a href="<?php //echo base_url('file/view/').$row->ID_UPLOAD?>" color="black">-->
+                                                    <?php echo $row->NAMA_FILE?><!--</a>-->
                                                 </td>
                                                 <td>
                                                     <?php echo $this->berkas_model->getById($row->ID_BERKAS)->JUDUL_BERKAS?>
