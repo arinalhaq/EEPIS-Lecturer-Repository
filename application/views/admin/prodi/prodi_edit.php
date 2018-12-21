@@ -60,6 +60,16 @@
 					<form action="<?php base_url('admin/prodi/edit/'.$prodi->ID_PRODI);?>" method="post" enctype="multipart/form-data" class="form-horizontal">
 						<div class="row form-group">
 							<div class="col col-md-3">
+									<label for="number" class=" form-control-label">ID prodi</label>
+								</div>
+								<div class="col-12 col-md-9">
+									<input type="text" id="id_prodi" name="id_prodi" placeholder="" class="form-control" value="<?php echo $prodi->ID_PRODI?>">
+									<small class="form-text text-muted">Masukkan ID prodi</small>
+									<div class="invalid-feedback">
+										<?php echo form_error('id_prodi') ?>
+									</div>
+							</div>
+							<div class="col col-md-3">
 								<label for="number" class=" form-control-label">Nama prodi</label>
 							</div>
 							<div class="col-12 col-md-9">
